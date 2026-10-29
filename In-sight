@@ -1,0 +1,3326 @@
+
+
+GitHub Style Bot Description Document
+File Manager UI Initialization Performance
+What Can You Do For Me
+
+
+Show sidebar
+
+Current chat:GitHub Style Bot Description Document
+
+Show knowledge panel
+Universal Accessibility & Rendering Patch Guide
+
+Consolidated Fixes for ARIA, HTML, Themes, and Data Protocols
+
+Version: 1.0 | Target: Existing Compan
+Universal Accessibility & Rendering Patch Guide.pdf
+
+PDF Document
+
+can we add pip and pin and pinned lock.. actually can we do a bot discription document that labels github styled coding to refer over to the coding to the link to the documents and repo pr expantion of language model that has mul option
+
+
+
+Worked through your question
+I've created a comprehensive Lumo Bot Development Reference document for you. It includes:
+
+GitHub-flavored markdown standards for all coding conventions
+Multi-model architecture explaining the Lite/Max routing system
+Tool integration schemas for web_search, image generation, artifact creation, etc.
+PR templates, commit standards, and CI/CD workflows
+External references to Proton services and documentation links
+The document serves as a central reference for contributors working with Lumo's codebase, covering everything from async patterns to security boundaries. You can find it in the canvas on the right.
+
+Would you like me to expand any particular section, such as the tool definitions, model comparison details, or add specific integration examples?
+
+
+
+
+1 file
+
+
+Im sorry but i need this to be dont with ai of githubs approved list per user its open sourced not at my will but i want to ask you if you would like to help me right a way bestter getting started opening documentation files that has developenent reference
+
+
+
+Thought this through and prepared your canvas
+
+
+
+1 file
+
+
+i meant the github index.md getting started
+
+
+Worked through your question and searched the web
+Got it — you want the index.md / GETTING_STARTED landing file that lives at the top of the repo: the front door that tells a new contributor how to install with pinned dependencies, which AI tooling they're allowed to use (per-user, per-tier), and how to open a PR. Here's that file:
+
+I've created your index.md Getting Started file, ready to drop into your repository root or docs/ folder.
+
+It includes:
+
+Pinned dependency workflow with pip-tools, uv, and Poetry options
+GitHub Copilot access tiers (Free, Pro, Pro+, Enterprise) with model availability notes
+AI usage disclosure rules for PRs and contribution transparency
+Step-by-step setup commands that work on Linux, macOS, and Windows
+Pull request templates and conventional commit guidance
+Security warnings about not pasting secrets into AI tools
+Troubleshooting section for common pip/hash/CI issues
+The file is intentionally tool-neutral—contributors can use any AI assistant their tier allows, but the repo’s setup, CI, and quality gates stay the same. All model availability notes cite GitHub’s documentation and recent Oct‑2026 reports, and placeholders (like <ORG>, <REPO>, <LICENSE>) are clearly marked for you to swap before publishing.
+
+Need me to tailor the AI tier table for your specific user plan, add a docs/ai-tooling.md deep dive, or generate the companion pyproject.toml and requirements.in templates next?
+
+
+
+
+
+
+C
+Sources
+
+1 file
+
+
+can we add in a extentions on creations of docs.github.com with name of blame of clients as well as a spell checker automattic and so it corrects spelling but excepts names of those who authorized that code in the code space of github
+
+
+
+Worked through your question and searched the web
+Confirmed the landscape before writing this — here's what exists and what doesn't. There's no single published extension that does both halves of what you're describing, so I've written this as a composable spec: it wires together tools that do exist (cspell / Code Spell Checker, typos, codespell, git blame tooling, CODEOWNERS parsers) into one documented extension, in GitHub Docs house style.
+
+I've created the Blame & Spell Check Extension specification in the style of docs.github.com. It's structured as a house-standard spec document that mirrors GitHub's official documentation format.
+
+The document covers:
+
+Two-part architecture: Attribution panel + protected-term spell checker
+Allowlist generation script (Python) that extracts names from git blame, .mailmap, CODEOWNERS, and commit trailers
+Three installation paths: VS Code extension, GitHub App, and GitHub Action
+Safety guarantees: Protection always beats correction, identifiers are skipped, corrections are suggestions not silent writes
+CI workflow that runs both typos and cspell with the same generated dictionary
+Troubleshooting table for shallow clones, false positives, and unauthorized line reports
+The spec treats this as a composable extension (no single product on the Marketplace does both halves yet), cites existing tools like Code Spell Checker, Codeowners Plus, and GitLens, and includes ready-to-copy configuration snippets for .cspell.json and .github/workflows/attribution-spellcheck.yml.
+
+Need me to generate the companion scripts/gen_author_dict.py file as a standalone artifact, or produce the VS Code package.json scaffold so you can publish the extension to the marketplace?
+
+
+
+
+V
+S
+C
+Sources
+
+1 file
+
+
+yes does spell checker make ! . //./ ./ * {} [] null n f e.i name nodes have to give more device detail auto mottically
+
+
+
+Thought this through and looked things up online
+
+
+
+C
+S
+N
+Sources
+
+1 file
+
+
+with mul language rememver
+
+
+Thought this through and looked things up online
+
+
+
+C
+
+V
+Sources
+
+1 file
+
+
+permission request hook input payload documented , ensure that ambiguity document reviewer an spell checker do . on.workflow.dispatch.inputs <input_id> name blacme
+
+
+
+Thinking...
+Permission request hooks
+
+Ambiguity document reviewer
+
+Spell checker integration with workflow triggers
+
+Input validation and payload structure
+
+I should make this practical with actual YAML and TypeScript examples.
+
+
+1 file
+
+
+
+Ask anything to Lumo
+so just to be sure ... i havent added nothing from our chat if coding was easier in one to or another while i was thinking send me the files im commiting today :D
+
+Stop generating
+
+
+Tools
+
+Connecting…
+
+
+
+Lumo 2.0 Lite
+Lumo can make mistakes. Please double-check responses.
+
+Lumo
+Ambiguity Review Hook Specification
+
+
+title: Ambiguity Document Reviewer and Spell Checker Hook intro: 'Document the permission request hook, input payload schema, and workflow_dispatch integration for the blame attribution and spell check extension.' versions: fpt: '' ghec: '' ghes: '*' topics:
+
+GitHub Actions
+Workflows
+Extensions
+<!-- docs/hook-inputs.md Documents the permission request hooks, workflow_dispatch inputs, and payload validation for the ambiguity document reviewer and spell checker. -->
+Ambiguity Document Reviewer and Spell Checker Hook
+Hook ID: ambiguity-review-spellcheck Trigger Type: workflow_dispatch / repository_dispatch Minimum Permissions: contents: read, pull-requests: write
+
+In this article
+Overview
+Permission Request Hook Schema
+Workflow Dispatch Inputs
+Input Payload Validation
+Ambiguity Document Reviewer
+Spell Checker Hook Integration
+Example Workflow
+Response Payload
+Error Handling
+Security Considerations
+Troubleshooting
+Overview
+This document specifies how the ambiguity document reviewer and spell checker integrate with GitHub Actions via permission request hooks. The hook accepts input payloads from workflow_dispatch events and validates them before executing the review pipeline.
+
+The system has two primary components:
+
+Component	Purpose
+Ambiguity Document Reviewer	Detects unclear or ambiguous statements in documentation that could cause misinterpretation
+Spell Checker	Validates spelling against the author allowlist and project dictionaries
+Both components share a unified input payload schema and permission model.
+
+Permission Request Hook Schema
+Hook Registration
+The hook registers as a GitHub App webhook listener for workflow_dispatch and repository_dispatch events.
+
+# .github/workflows/ambiguity-review.yml
+name: Ambiguity Review and Spell Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      # See full schema below
+      blacme:
+        description: 'Blame attribution mode'
+        required: true
+        default: 'auto'
+      document_paths:
+        description: 'Glob patterns for documents to review'
+        required: false
+        default: '**/*.md'
+      spell_check_level:
+        description: 'Spell check severity'
+        required: false
+        default: 'suggest'
+      language_override:
+        description: 'Locale override (e.g., en-US, es)'
+        required: false
+        default: ''
+      strict_mode:
+        description: 'Fail on any detected issue'
+        required: false
+        type: boolean
+        default: false
+  repository_dispatch:
+    types: [ambiguity-review-trigger]
+
+permissions:
+  contents: read
+  pull-requests: write
+  actions: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Validate inputs
+        id: validate
+        run: |
+          python scripts/validate_hook_inputs.py \
+            --blacme "${{ inputs.blacme }}" \
+            --paths "${{ inputs.document_paths }}" \
+            --level "${{ inputs.spell_check_level }}"
+          
+      - name: Run ambiguity review
+        id: ambiguity
+        run: |
+          npx ambiguity-review \
+            --input "${{ github.event.inputs.document_paths }}" \
+            --output reports/ambiguity-report.json
+            
+      - name: Run spell check
+        id: spellcheck
+        run: |
+          npx cspell "${{ github.event.inputs.document_paths }}" \
+            --config cspell.json \
+            --no-progress
+            
+      - name: Post review comment
+        if: github.event_name == 'pull_request'
+        run: |
+          npx ambiguity-review post-comment \
+            --report reports/ambiguity-report.json \
+            --pr ${{ github.event.pull_request.number }}
+Workflow Dispatch Inputs
+Complete Input Schema
+Each workflow_dispatch input maps to a specific configuration parameter. The schema enforces types and validates values before execution.
+
+workflow_dispatch:
+  inputs:
+    # Blame attribution mode
+    blacme:
+      description: 'Blame attribution mode: auto, full, or client-only'
+      required: true
+      default: 'auto'
+      type: choice
+      options:
+        - auto
+        - full
+        - client-only
+        - skip
+    
+    # Document paths to analyze
+    document_paths:
+      description: 'Glob patterns for files (e.g., "**/*.md", "docs/**/*.rst")'
+      required: false
+      default: '**/*.md'
+      type: string
+    
+    # Spell check severity
+    spell_check_level:
+      description: 'Spell check reporting level'
+      required: false
+      default: 'suggest'
+      type: choice
+      options:
+        - off
+        - report
+        - suggest
+        - enforce
+    
+    # Locale override
+    language_override:
+      description: 'Language/locale override (e.g., en-US, de-DE, es)'
+      required: false
+      default: ''
+      type: string
+    
+    # Strict mode
+    strict_mode:
+      description: 'Exit non-zero on any detected issue'
+      required: false
+      type: boolean
+      default: false
+    
+    # Include device detail extraction
+    extract_device_detail:
+      description: 'Extract device/file metadata from paths'
+      required: false
+      type: boolean
+      default: true
+    
+    # Check identifiers in code blocks
+    check_identifiers:
+      description: 'Check spelling inside code blocks'
+      required: false
+      type: boolean
+      default: false
+    
+    # Minimum word length
+    min_word_length:
+      description: 'Minimum character count before spell check (default: 4)'
+      required: false
+      type: choice
+      options:
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+      default: '4'
+    
+    # Generate author dictionary
+    regenerate_authors:
+      description: 'Regenerate author allowlist from git history'
+      required: false
+      type: boolean
+      default: true
+    
+    # Output format
+    output_format:
+      description: 'Report output format'
+      required: false
+      default: 'json'
+      type: choice
+      options:
+        - json
+        - markdown
+        - sarif
+Input Metadata Table
+Input ID	Type	Required	Default	Description
+<input_id>	string	varies	—	Generic placeholder for any input field
+blacme	choice	yes	auto	Blame attribution mode selector
+document_paths	string	no	**/*.md	File glob patterns
+spell_check_level	choice	no	suggest	Severity level
+language_override	string	no	""	Locale override
+strict_mode	boolean	no	false	Fail-fast behavior
+extract_device_detail	boolean	no	true	Device metadata extraction
+check_identifiers	boolean	no	false	Code block checking
+min_word_length	choice	no	4	Short-token threshold
+regenerate_authors	boolean	no	true	Author dictionary regen
+output_format	choice	no	json	Report format
+Input Payload Validation
+Validation Script
+Every workflow begins with input validation to reject malformed or malicious payloads.
+
+#!/usr/bin/env python3
+"""
+Validate workflow_dispatch input payloads for the ambiguity review hook.
+
+Usage:
+    python scripts/validate_hook_inputs.py \
+        --blacme "auto" \
+        --paths "**/*.md" \
+        --level "suggest"
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from pathlib import Path
+from typing import Any
+
+
+VALID_BLACME_MODES = frozenset({"auto", "full", "client-only", "skip"})
+VALID_SPELL_LEVELS = frozenset({"off", "report", "suggest", "enforce"})
+VALID_OUTPUT_FORMATS = frozenset({"json", "markdown", "sarif"})
+MIN_WORD_LENGTHS = frozenset({"3", "4", "5", "6"})
+
+# Safe glob patterns — reject shell metacharacters
+SAFE_GLOB_PATTERN = re.compile(r"^[\w./\*\[\]{}!@]+$")
+
+
+def validate_blacme(mode: str) -> tuple[bool, str]:
+    """Validate blame attribution mode."""
+    if mode not in VALID_BLACME_MODES:
+        return False, f"Invalid blacme mode: {mode}. Choose from {sorted(VALID_BLACME_MODES)}"
+    return True, ""
+
+
+def validate_glob_pattern(pattern: str) -> tuple[bool, str]:
+    """Validate glob pattern for security."""
+    if not pattern:
+        return True, ""  # Empty is valid (means "all")
+    
+    # Reject shell injection patterns
+    dangerous = [";", "$(", "`", "|", "&", "\n", "\r"]
+    if any(d in pattern for d in dangerous):
+        return False, "Glob pattern contains dangerous characters"
+    
+    if not SAFE_GLOB_PATTERN.match(pattern):
+        return False, f"Glob pattern is malformed: {pattern}"
+    
+    return True, ""
+
+
+def validate_spell_level(level: str) -> tuple[bool, str]:
+    """Validate spell check severity level."""
+    if level not in VALID_SPELL_LEVELS:
+        return False, f"Invalid spell_check_level: {level}"
+    return True, ""
+
+
+def validate_locale(locale: str) -> tuple[bool, str]:
+    """Validate locale code (e.g., en-US, de-DE)."""
+    if not locale:
+        return True, ""
+    
+    # BCP 47 pattern
+    pattern = re.compile(r"^[a-z]{2}(-[A-Z][a-z]{2})?(-[A-Z]{2}|-\d{3})?$", re.IGNORECASE)
+    if not pattern.match(locale):
+        return False, f"Invalid locale format: {locale}. Use BCP 47 (e.g., en-US)"
+    
+    return True, ""
+
+
+def validate_output_format(fmt: str) -> tuple[bool, str]:
+    """Validate output format."""
+    if fmt not in VALID_OUTPUT_FORMATS:
+        return False, f"Invalid output_format: {fmt}"
+    return True, ""
+
+
+def validate_min_word_length(length: str) -> tuple[bool, str]:
+    """Validate minimum word length threshold."""
+    if length not in MIN_WORD_LENGTHS:
+        return False, f"Invalid min_word_length: {length}"
+    return True, ""
+
+
+def validate_boolean(value: Any) -> tuple[bool, str]:
+    """Validate boolean input."""
+    if isinstance(value, bool):
+        return True, ""
+    if isinstance(value, str) and value.lower() in {"true", "false"}:
+        return True, ""
+    return False, f"Boolean expected, got: {value}"
+
+
+def run_validation(inputs: dict[str, Any]) -> dict[str, Any]:
+    """Run all validations and return results."""
+    errors: list[dict[str, str]] = []
+    warnings: list[dict[str, str]] = []
+    
+    # blacme (required)
+    valid, msg = validate_blacme(inputs.get("blacme", ""))
+    if not valid:
+        errors.append({"field": "blacme", "message": msg})
+    
+    # document_paths
+    valid, msg = validate_glob_pattern(inputs.get("document_paths", ""))
+    if not valid:
+        errors.append({"field": "document_paths", "message": msg})
+    elif len(inputs.get("document_paths", "")) > 256:
+        warnings.append({"field": "document_paths", "message": "Pattern exceeds 256 characters"})
+    
+    # spell_check_level
+    valid, msg = validate_spell_level(inputs.get("spell_check_level", ""))
+    if not valid:
+        errors.append({"field": "spell_check_level", "message": msg})
+    
+    # language_override
+    valid, msg = validate_locale(inputs.get("language_override", ""))
+    if not valid:
+        errors.append({"field": "language_override", "message": msg})
+    
+    # strict_mode
+    valid, msg = validate_boolean(inputs.get("strict_mode", False))
+    if not valid:
+        errors.append({"field": "strict_mode", "message": msg})
+    
+    # extract_device_detail
+    valid, msg = validate_boolean(inputs.get("extract_device_detail", True))
+    if not valid:
+        errors.append({"field": "extract_device_detail", "message": msg})
+    
+    # check_identifiers
+    valid, msg = validate_boolean(inputs.get("check_identifiers", False))
+    if not valid:
+        errors.append({"field": "check_identifiers", "message": msg})
+    
+    # min_word_length
+    valid, msg = validate_min_word_length(inputs.get("min_word_length", "4"))
+    if not valid:
+        errors.append({"field": "min_word_length", "message": msg})
+    
+    # regenerate_authors
+    valid, msg = validate_boolean(inputs.get("regenerate_authors", True))
+    if not valid:
+        errors.append({"field": "regenerate_authors", "message": msg})
+    
+    # output_format
+    valid, msg = validate_output_format(inputs.get("output_format", "json"))
+    if not valid:
+        errors.append({"field": "output_format", "message": msg})
+    
+    return {
+        "valid": len(errors) == 0,
+        "errors": errors,
+        "warnings": warnings,
+        "validated_inputs": {k: v for k, v in inputs.items() if k in [
+            "blacme", "document_paths", "spell_check_level", "language_override",
+            "strict_mode", "extract_device_detail", "check_identifiers",
+            "min_word_length", "regenerate_authors", "output_format"
+        ]}
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Validate ambiguity review hook inputs")
+    parser.add_argument("--blacme", required=True)
+    parser.add_argument("--paths", dest="document_paths", default="", help="File glob patterns")
+    parser.add_argument("--level", dest="spell_check_level", default="suggest")
+    parser.add_argument("--locale", dest="language_override", default="")
+    parser.add_argument("--strict-mode", dest="strict_mode", action="store_true", default=False)
+    parser.add_argument("--no-device-detail", dest="extract_device_detail", action="store_false", default=True)
+    parser.add_argument("--check-identifiers", dest="check_identifiers", action="store_true", default=False)
+    parser.add_argument("--min-word-length", dest="min_word_length", default="4")
+    parser.add_argument("--no-regenerate-authors", dest="regenerate_authors", action="store_false", default=True)
+    parser.add_argument("--output-format", dest="output_format", default="json")
+    parser.add_argument("--json-output", action="store_true", help="Output JSON instead of exit codes")
+    
+    args = parser.parse_args(argv)
+    
+    inputs = {
+        "blacme": args.blacme,
+        "document_paths": args.document_paths,
+        "spell_check_level": args.spell_check_level,
+        "language_override": args.language_override,
+        "strict_mode": args.strict_mode,
+        "extract_device_detail": args.extract_device_detail,
+        "check_identifiers": args.check_identifiers,
+        "min_word_length": args.min_word_length,
+        "regenerate_authors": args.regenerate_authors,
+        "output_format": args.output_format,
+    }
+    
+    result = run_validation(inputs)
+    
+    if args.json_output:
+        print(json.dumps(result, indent=2))
+    else:
+        if result["valid"]:
+            print("✓ All inputs validated successfully")
+            if result["warnings"]:
+                print("\nWarnings:")
+                for w in result["warnings"]:
+                    print(f"  ⚠ {w['field']}: {w['message']}")
+            return 0
+        else:
+            print("✗ Input validation failed:")
+            for e in result["errors"]:
+                print(f"  ✗ {e['field']}: {e['message']}")
+            return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+Validation Exit Codes
+Code	Meaning
+0	All inputs valid
+1	Validation error (blocking)
+2	Warning only (continue execution)
+Ambiguity Document Reviewer
+Purpose
+The ambiguity reviewer detects statements that are unclear, vague, or prone to misinterpretation. Common patterns include:
+
+Pattern	Example	Recommended Replacement
+Passive voice with missing agent	"The file was updated"	"The file was updated by @username on 2026-10-29"
+Unspecified quantities	"Several contributors"	"Five contributors (list names)"
+Vague time references	"Recently", "Soon"	"On 2026-10-15", "Within 5 business days"
+Unsupported absolutes	"Always", "Never", "Everyone"	Add conditions or exceptions
+Missing references	"See the documentation"	"See /docs/configuration.md#section"
+Ambiguous pronouns	"It can be found there"	"The configuration file can be found at /etc/app/config.yaml"
+Modal confusion	"May be required"	"Is required" or "May be omitted"
+Detection Algorithm
+#!/usr/bin/env python3
+"""
+Ambiguity detector for documentation review.
+
+Detects passive voice, vague quantifiers, unspecified references,
+and unsupported absolutes.
+"""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Generator
+
+
+@dataclass
+class AmbiguityFinding:
+    """Single ambiguity detection."""
+    file_path: str
+    line_number: int
+    column_start: int
+    column_end: int
+    snippet: str
+    category: str
+    suggestion: str
+    severity: str  # "info", "warning", "error"
+
+
+# Passive voice patterns (English)
+PASSIVE_VOICE_PATTERNS = [
+    re.compile(r"\bw(as|ere)\s+\w+ed\b", re.IGNORECASE),
+    re.compile(r"\bb(eing|one)\s+the\s+result\b", re.IGNORECASE),
+]
+
+# Vague quantifiers
+VAGUE_QUANTIFIERS = re.compile(r"\b(several|many|some|a few|most|a number of)\b", re.IGNORECASE)
+
+# Unspecific time references
+VAGUE_TIME = re.compile(r"\b(recently|soon|later|eventually|shortly)\b", re.IGNORECASE)
+
+# Unsupported absolutes
+ABSOLUTES = re.compile(r"\b(always|never|everyone|everybody|nothing|nobody|completely|totally)\b", re.IGNORECASE)
+
+# Vague references
+VAGUE_REFERENCE = re.compile(r"\b(the\s+(?:above|below|following)|there|here)\b", re.IGNORECASE)
+
+# Modal ambiguity
+MODAL_AMBIGUITY = re.compile(r"\b(may\s+(?:be\s+)?required|could\s+be|might\s+be)\b", re.IGNORECASE)
+
+
+def detect_passive_voice(text: str) -> list[AmbiguityFinding]:
+    """Detect passive voice constructions."""
+    findings = []
+    for i, line in enumerate(text.splitlines(), start=1):
+        for pattern in PASSIVE_VOICE_PATTERNS:
+            for match in pattern.finditer(line):
+                findings.append(AmbiguityFinding(
+                    file_path="<stdin>",
+                    line_number=i,
+                    column_start=match.start(),
+                    column_end=match.end(),
+                    snippet=match.group(),
+                    category="passive-voice",
+                    suggestion="Consider active voice: 'X did Y' instead of 'Y was done by X'",
+                    severity="info"
+                ))
+    return findings
+
+
+def detect_vague_quantifiers(text: str) -> list[AmbiguityFinding]:
+    """Detect vague quantifiers that should be replaced with specifics."""
+    findings = []
+    for i, line in enumerate(text.splitlines(), start=1):
+        for match in VAGUE_QUANTIFIERS.finditer(line):
+            findings.append(AmbiguityFinding(
+                file_path="<stdin>",
+                line_number=i,
+                column_start=match.start(),
+                column_end=match.end(),
+                snippet=match.group(),
+                category="vague-quantifier",
+                suggestion="Specify exact numbers or percentages where possible",
+                severity="warning"
+            ))
+    return findings
+
+
+def detect_vague_time(text: str) -> list[AmbiguityFinding]:
+    """Detect unspecific time references."""
+    findings = []
+    for i, line in enumerate(text.splitlines(), start=1):
+        for match in VAGUE_TIME.finditer(line):
+            findings.append(AmbiguityFinding(
+                file_path="<stdin>",
+                line_number=i,
+                column_start=match.start(),
+                column_end=match.end(),
+                snippet=match.group(),
+                category="vague-time",
+                suggestion="Use specific dates or durations (e.g., 'within 5 business days')",
+                severity="warning"
+            ))
+    return findings
+
+
+def detect_absolutes(text: str) -> list[AmbiguityFinding]:
+    """Detect unsupported absolute statements."""
+    findings = []
+    for i, line in enumerate(text.splitlines(), start=1):
+        for match in ABSOLUTES.finditer(line):
+            findings.append(AmbiguityFinding(
+                file_path="<stdin>",
+                line_number=i,
+                column_start=match.start(),
+                column_end=match.end(),
+                snippet=match.group(),
+                category="unsupported-absolute",
+                suggestion="Add qualifying conditions or verify the absolute claim",
+                severity="warning"
+            ))
+    return findings
+
+
+def detect_vague_references(text: str) -> list[AmbiguityFinding]:
+    """Detect vague demonstrative references."""
+    findings = []
+    for i, line in enumerate(text.splitlines(), start=1):
+        for match in VAGUE_REFERENCE.finditer(line):
+            findings.append(AmbiguityFinding(
+                file_path="<stdin>",
+                line_number=i,
+                column_start=match.start(),
+                column_end=match.end(),
+                snippet=match.group(),
+                category="vague-reference",
+                suggestion="Specify exactly what is being referenced",
+                severity="info"
+            ))
+    return findings
+
+
+def detect_modal_ambiguity(text: str) -> list[AmbiguityFinding]:
+    """Detect modal verbs that create requirement ambiguity."""
+    findings = []
+    for i, line in enumerate(text.splitlines(), start=1):
+        for match in MODAL_AMBIGUITY.finditer(line):
+            findings.append(AmbiguityFinding(
+                file_path="<stdin>",
+                line_number=i,
+                column_start=match.start(),
+                column_end=match.end(),
+                snippet=match.group(),
+                category="modal-ambiguity",
+                suggestion="Clarify if this is required (must) or optional (may)",
+                severity="error"  # Critical for technical specs
+            ))
+    return findings
+
+
+def scan_file(path: Path) -> list[AmbiguityFinding]:
+    """Scan a single file for ambiguities."""
+    text = path.read_text(encoding="utf-8")
+    
+    findings: list[AmbiguityFinding] = []
+    findings.extend(detect_passive_voice(text))
+    findings.extend(detect_vague_quantifiers(text))
+    findings.extend(detect_vague_time(text))
+    findings.extend(detect_absolutes(text))
+    findings.extend(detect_vague_references(text))
+    findings.extend(detect_modal_ambiguity(text))
+    
+    # Attach file path to all findings
+    for f in findings:
+        f.file_path = str(path)
+    
+    return sorted(findings, key=lambda x: (x.line_number, x.column_start))
+
+
+def scan_directory(root: Path, patterns: list[str] | None = None) -> list[AmbiguityFinding]:
+    """Recursively scan a directory for ambiguities."""
+    import fnmatch
+    
+    if patterns is None:
+        patterns = ["*.md", "*.rst", "*.txt"]
+    
+    findings: list[AmbiguityFinding] = []
+    
+    for pattern in patterns:
+        for path in root.glob("**/" + pattern):
+            if not path.is_file():
+                continue
+            # Skip common exclusions
+            if any(excluded in path.parts for excluded in ["node_modules", ".git", "vendor", "dist"]):
+                continue
+            findings.extend(scan_file(path))
+    
+    return findings
+
+
+def generate_report(findings: list[AmbiguityFinding], output_format: str = "json") -> str:
+    """Generate a formatted report."""
+    import json
+    
+    if output_format == "json":
+        return json.dumps([
+            {
+                "file": f.file_path,
+                "line": f.line_number,
+                "column_start": f.column_start,
+                "column_end": f.column_end,
+                "snippet": f.snippet,
+                "category": f.category,
+                "suggestion": f.suggestion,
+                "severity": f.severity
+            }
+            for f in findings
+        ], indent=2)
+    
+    elif output_format == "markdown":
+        lines = ["# Ambiguity Report\n"]
+        
+        if not findings:
+            lines.append("✓ No ambiguities detected.")
+            return "\n".join(lines)
+        
+        lines.append(f"**Total findings:** {len(findings)}\n")
+        
+        # Group by severity
+        by_severity = {}
+        for f in findings:
+            by_severity.setdefault(f.severity, []).append(f)
+        
+        for severity in ["error", "warning", "info"]:
+            if severity not in by_severity:
+                continue
+            lines.append(f"## {severity.capitalize()} ({len(by_severity[severity])})\n")
+            for f in by_severity[severity]:
+                lines.append(f"- **{f.file_path}:{f.line_number}** — {f.category}")
+                lines.append(f"  - Snippet: `{f.snippet}`")
+                lines.append(f"  - Suggestion: {f.suggestion}")
+                lines.append("")
+        
+        return "\n".join(lines)
+    
+    else:
+        # Plain text
+        lines = []
+        for f in findings:
+            lines.append(f"[{f.severity.upper()}] {f.file_path}:{f.line_number}")
+            lines.append(f"  Category: {f.category}")
+            lines.append(f"  Snippet: {f.snippet}")
+            lines.append(f"  Suggestion: {f.suggestion}")
+            lines.append("")
+        return "\n".join(lines)
+
+
+if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Detect ambiguities in documentation")
+    parser.add_argument("paths", nargs="+", help="Files or directories to scan")
+    parser.add_argument("--format", choices=["json", "markdown", "text"], default="json")
+    parser.add_argument("--fail-on-error", action="store_true", help="Exit non-zero if errors found")
+    
+    args = parser.parse_args()
+    
+    findings: list[AmbiguityFinding] = []
+    
+    for path_str in args.paths:
+        path = Path(path_str)
+        if path.is_dir():
+            findings.extend(scan_directory(path))
+        elif path.is_file():
+            findings.extend(scan_file(path))
+        else:
+            print(f"Path does not exist: {path}", file=__import__("sys").stderr)
+            raise SystemExit(2)
+    
+    print(generate_report(findings, args.format))
+    
+    if args.fail_on_error and any(f.severity == "error" for f in findings):
+        raise SystemExit(1)
+Spell Checker Hook Integration
+Integration Points
+The spell checker integrates with the ambiguity reviewer through shared hooks and configuration files.
+
+# .github/semantic-sources.md
+# Document the input and output contracts between hooks
+---
+name: Semantic Sources Registry
+version: 1.0
+---
+
+## Hook Contracts
+
+### Input Contract: ambiguity-review-spellcheck
+
+| Field | Source | Validation |
+|---|---|---|
+| `inputs.blacme` | workflow_dispatch | choice enum |
+| `inputs.document_paths` | workflow_dispatch | glob pattern |
+| `inputs.spell_check_level` | workflow_dispatch | choice enum |
+
+### Output Contract: review-results
+
+| Field | Destination | Format |
+|---|---|---|
+| `findings` | PR comment | SARIF / JSON |
+| `device_details` | Attribution panel | JSON array |
+| `author_dictionary` | CI cache | `.txt` file |
+
+### Trigger Chains
+
+workflow_dispatch │ ├──→ validate_inputs.py → (abort if invalid) │ ├──→ regenerate_authors.py → (.github/author-names.txt) │ ├──→ ambiguity_detector.py → (ambiguity-findings.json) │ ├──→ spell_checker.py → (spelling-findings.json) │ └──→ post_report.py → (PR comment)
+
+
+### Device Detail Extraction
+
+When `extract_device_detail: true`, the hook scans file paths and node names for device metadata.
+
+```python
+def extract_device_tokens(paths: list[str]) -> dict[str, set[str]]:
+    """Extract device/file metadata from paths and node names.
+    
+    Returns:
+        Dictionary mapping category to extracted tokens
+        
+    Example:
+        ['/dev/sda1', 'node_data_controller', './config.yml']
+        → {
+            'devices': {'sda', 'sda1'},
+            'controllers': {'data', 'controller'},
+            'configs': {'config'}
+          }
+    """
+    import re
+    
+    categories: dict[str, set[str]] = {
+        'devices': set(),
+        'controllers': set(),
+        'configs': set(),
+        'nodes': set(),
+        'files': set(),
+    }
+    
+    for path in paths:
+        # Strip leading slashes and file extensions
+        normalized = re.sub(r'^[/\\]+', '', path)
+        normalized = re.sub(r'\.[a-zA-Z0-9]+$', '', normalized)
+        
+        # Tokenize
+        tokens = set(re.split(r'[/\\_.-]+', normalized))
+        tokens = {t for t in tokens if len(t) >= 2 and not t.isdigit()}
+        
+        # Categorize by prefix
+        for token in tokens:
+            token_lower = token.lower()
+            if token_lower.startswith('dev'):
+                categories['devices'].add(token)
+            elif token_lower.endswith('controller') or 'ctrl' in token_lower:
+                categories['controllers'].add(token)
+            elif 'config' in token_lower:
+                categories['configs'].add(token)
+            elif token_lower.startswith('node'):
+                categories['nodes'].add(token)
+            else:
+                categories['files'].add(token)
+    
+    return {k: v for k, v in categories.items() if v}
+Example Workflow
+Complete Workflow Definition
+# .github/workflows/ambiguity-review.yml
+name: Ambiguity Review and Spell Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      blacme:
+        description: 'Blame attribution mode'
+        required: true
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - full
+          - client-only
+          - skip
+      
+      document_paths:
+        description: 'Glob patterns for files'
+        required: false
+        default: '**/*.md'
+        type: string
+      
+      spell_check_level:
+        description: 'Spell check severity'
+        required: false
+        default: 'suggest'
+        type: choice
+        options:
+          - off
+          - report
+          - suggest
+          - enforce
+      
+      language_override:
+        description: 'Locale override'
+        required: false
+        default: ''
+        type: string
+      
+      strict_mode:
+        description: 'Fail on any issue'
+        required: false
+        type: boolean
+        default: false
+      
+      extract_device_detail:
+        description: 'Extract device metadata'
+        required: false
+        type: boolean
+        default: true
+      
+      check_identifiers:
+        description: 'Check identifiers in code'
+        required: false
+        type: boolean
+        default: false
+      
+      min_word_length:
+        description: 'Minimum word length'
+        required: false
+        type: choice
+        options:
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+        default: '4'
+      
+      regenerate_authors:
+        description: 'Regenerate author dictionary'
+        required: false
+        type: boolean
+        default: true
+      
+      output_format:
+        description: 'Report format'
+        required: false
+        default: 'json'
+        type: choice
+        options:
+          - json
+          - markdown
+          - sarif
+  
+  push:
+    paths:
+      - '**/*.md'
+      - '.github/workflows/ambiguity-review.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  REPORT_DIR: reports/ambiguity
+
+jobs:
+  validate:
+    name: Validate Inputs
+    runs-on: ubuntu-latest
+    outputs:
+      valid: ${{ steps.validation.outputs.valid }}
+      errors: ${{ steps.validation.outputs.errors }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate workflow inputs
+        id: validation
+        run: |
+          python scripts/validate_hook_inputs.py \
+            --blacme "${{ inputs.blacme }}" \
+            --paths "${{ inputs.document_paths }}" \
+            --level "${{ inputs.spell_check_level }}" \
+            --locale "${{ inputs.language_override }}" \
+            --min-word-length "${{ inputs.min_word_length }}" \
+            --json-output > validation-result.json
+          
+          echo "valid=$(jq -r '.valid' validation-result.json)" >> $GITHUB_OUTPUT
+          echo "errors=$(jq -c '.errors' validation-result.json)" >> $GITHUB_OUTPUT
+      
+      - name: Upload validation report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-errors
+          path: validation-result.json
+
+  regenerate:
+    name: Regenerate Author Dictionary
+    runs-on: ubuntu-latest
+    needs: validate
+    if: |
+      needs.validate.outputs.valid == 'true' &&
+      inputs.regenerate_authors == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Generate author dictionary
+        run: |
+          python scripts/gen_author_dict.py .github/author-names.txt
+      
+      - name: Upload author dictionary
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-names
+          path: .github/author-names.txt
+          retention-days: 7
+
+  analyze:
+    name: Ambiguity and Spell Analysis
+    runs-on: ubuntu-latest
+    needs: [validate, regenerate]
+    if: needs.validate.outputs.valid == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download author dictionary
+        if: inputs.regenerate_authors == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: author-names
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Install dependencies
+        run: |
+          npm install -g cspell typos
+      
+      - name: Run ambiguity detector
+        run: |
+          python scripts/ambiguity_detector.py \
+            --pattern "${{ inputs.document_paths }}" \
+            --format "${{ inputs.output_format }}" \
+            --output "${{ env.REPORT_DIR }}/ambiguity.${{ inputs.output_format }}"
+      
+      - name: Run spell checker
+        run: |
+          cspell "${{ inputs.document_paths }}" \
+            --config cspell.json \
+            --no-progress \
+            --relative \
+            --output-file="${{ env.REPORT_DIR }}/spelling.json" \
+            || true  # Don't fail the job
+      
+      - name: Extract device details
+        if: inputs.extract_device_detail == 'true'
+        run: |
+          python scripts/extract_device_tokens.py \
+            --paths "${{ inputs.document_paths }}" \
+            --output "${{ env.REPORT_DIR }}/device-details.json"
+      
+      - name: Combine reports
+        run: |
+          python scripts/combine_reports.py \
+            --ambiguity "${{ env.REPORT_DIR }}/ambiguity.${{ inputs.output_format }}" \
+            --spelling "${{ env.REPORT_DIR }}/spelling.json" \
+            --device "${{ env.REPORT_DIR }}/device-details.json" \
+            --output "${{ env.REPORT_DIR }}/combined.${{ inputs.output_format }}"
+      
+      - name: Upload combined report
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-report
+          path: ${{ env.REPORT_DIR }}/**
+          retention-days: 7
+
+  comment:
+    name: Post Review Comment
+    runs-on: ubuntu-latest
+    needs: [validate, analyze]
+    if: |
+      needs.validate.outputs.valid == 'true' &&
+      github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download report
+        uses: actions/download-artifact@v4
+        with:
+          name: review-report
+          path: reports
+      
+      - name: Post PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('reports/combined.markdown', 'utf8');
+            
+            const summary = {
+              title: '📝 Ambiguity and Spell Review',
+              findings: {
+                ambiguities: 0,
+                spell_errors: 0,
+                device_details: 0
+              }
+            };
+            
+            // Parse report for counts
+            const ambMatch = report.match(/Total findings: (\d+)/);
+            if (ambMatch) summary.findings.ambiguities = parseInt(ambMatch[1]);
+            
+            const spellMatch = report.match(/spell errors: (\d+)/);
+            if (spellMatch) summary.findings.spell_errors = parseInt(spellMatch[1]);
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: report
+            });
+            
+            console.log(`Posted review comment for PR #${context.issue.number}`);
+
+  fail-if-strict:
+    name: Enforce Strict Mode
+    runs-on: ubuntu-latest
+    needs: analyze
+    if: |
+      inputs.strict_mode == 'true' &&
+      needs.analyze.result != 'success'
+    steps:
+      - name: Fail workflow
+        run: |
+          echo "::error::Strict mode enabled: workflow fails on any detected issue"
+          exit 1
+Response Payload
+Standard Output Schema
+All hook invocations return a standardized JSON payload.
+
+{
+  "status": "success" | "failure" | "partial",
+  "timestamp": "2026-10-29T09:07:00Z",
+  "workflow_run_id": 123456789,
+  "inputs": {
+    "blacme": "auto",
+    "document_paths": "**/*.md",
+    "spell_check_level": "suggest"
+  },
+  "summary": {
+    "files_scanned": 42,
+    "lines_analyzed": 1284,
+    "findings_total": 15,
+    "by_severity": {
+      "error": 2,
+      "warning": 8,
+      "info": 5
+    },
+    "by_category": {
+      "passive-voice": 3,
+      "vague-quantifier": 5,
+      "vague-time": 2,
+      "modal-ambiguity": 2,
+      "spelling": 3
+    }
+  },
+  "findings": [
+    {
+      "id": "finding-001",
+      "type": "ambiguity",
+      "file": "docs/setup.md",
+      "line": 23,
+      "category": "vague-time",
+      "snippet": "The configuration should be updated soon.",
+      "suggestion": "Use specific dates or durations (e.g., 'within 5 business days')",
+      "severity": "warning",
+      "autofix_available": false
+    },
+    {
+      "id": "spell-001",
+      "type": "spelling",
+      "file": "README.md",
+      "line": 45,
+      "word": "recieve",
+      "suggestions": ["receive"],
+      "severity": "warning",
+      "autofix_available": true
+    }
+  ],
+  "device_details": {
+    "devices": ["sda", "sda1", "nvme0"],
+    "controllers": ["data", "storage"],
+    "configs": ["config", "app-config"]
+  },
+  "author_dictionary_generated": true,
+  "author_count": 12
+}
+Error Response Schema
+{
+  "status": "failure",
+  "timestamp": "2026-10-29T09:07:00Z",
+  "workflow_run_id": 123456789,
+  "error": {
+    "code": "INVALID_INPUT",
+    "message": "Validation failed for field 'blacme'",
+    "details": {
+      "field": "blacme",
+      "received": "unknown",
+      "expected": ["auto", "full", "client-only", "skip"]
+    }
+  },
+  "recommendations": [
+    "Check the workflow_dispatch inputs schema",
+    "Ensure the input value matches one of the allowed options"
+  ]
+}
+Error Handling
+Graceful Degradation
+Error Condition	Behavior
+Invalid input	Abort workflow, post validation error to PR
+Missing author dictionary	Continue with default dictionaries, warn
+Shallow git clone	Skip blame attribution, continue with spell check
+Missing cspell.json	Use default configuration, warn
+Network timeout	Retry 3x, then continue with offline mode
+Permission denied	Log warning, skip protected operations
+Retry Logic
+import asyncio
+import logging
+from typing import Callable, TypeVar, Awaitable
+
+T = TypeVar('T')
+
+async def retry_with_backoff(
+    func: Callable[..., Awaitable[T]],
+    max_retries: int = 3,
+    base_delay: float = 1.0,
+    max_delay: float = 30.0,
+    backoff_factor: float = 2.0
+) -> T:
+    """Retry an async function with exponential backoff."""
+    last_exception: Exception | None = None
+    
+    for attempt in range(max_retries):
+        try:
+            return await func()
+        except Exception as e:
+            last_exception = e
+            if attempt == max_retries - 1:
+                break
+            
+            delay = min(base_delay * (backoff_factor ** attempt), max_delay)
+            logging.warning(f"Attempt {attempt + 1} failed: {e}. Retrying in {delay}s...")
+            await asyncio.sleep(delay)
+    
+    raise last_exception
+Security Considerations
+Input Sanitization
+All workflow inputs are sanitized before use:
+
+def sanitize_input(value: str) -> str:
+    """Sanitize user-provided input for safe use."""
+    # Remove null bytes
+    value = value.replace('\0', '')
+    
+    # Escape shell metacharacters
+    dangerous = [';', '$(', '`', '|', '&', '\n', '\r', '\\', "'"]
+    for char in dangerous:
+        value = value.replace(char, '')
+    
+    # Limit length
+    return value[:4096]
+Permission Minimization
+The hook requests only the minimum permissions needed:
+
+Permission	Reason
+contents: read	Access files for scanning
+pull-requests: write	Post review comments
+actions: read	Read workflow status
+No write permissions are requested for repository contents.
+
+Troubleshooting
+Inputs are not recognized in workflow Confirm the input name matches exactly between workflow_dispatch.inputs and the action's input handler. Case matters.
+
+Validation fails for valid inputs Check for leading/trailing whitespace in the input value. Trim before validation.
+
+Author dictionary is empty Confirm fetch-depth: 0 in checkout step. Shallow clones truncate history.
+
+Device details are missing Verify extract_device_detail: true is set. Also ensure paths contain recognizable tokens.
+
+Spell checker flags author names Regenerate the author dictionary. Names from git history may be misspelled in the first pass.
+
+Further Reading
+Resource	Purpose
+GitHub Actions: workflow_dispatch	Define custom inputs for manual triggers
+GitHub Actions: expressions	Use expressions in input defaults
+CSpell Configuration	Configure spell checker behavior
+Ambiguity Detector Script	Python source for ambiguity detection
+Hook Specification version 1.0 · Reviewed 29 October 2026 · Maintainer: <MAINTAINER_HANDLE><!--
+  index.md — repository landing / getting started
+  Replace every <PLACEHOLDER> before publishing.
+  Placeholders are wrapped in <> so they are easy to find-and-replace.
+-->
+
+# <PROJECT_NAME>
+
+> <ONE_LINE_DESCRIPTION_OF_PROJECT>
+
+[![License](https://img.shields.io/badge/license-<LICENSE>-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
+[![CI](https://github.com/<ORG>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<ORG>/<REPO>/actions/workflows/ci.yml)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+**Repo:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;
+**Docs:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;/tree/main/docs
+**Issues:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;/issues
+**Discussions:** https://github.com/&lt;ORG&gt;/&lt;REPO&gt;/discussions
+
+---
+
+## Table of Contents
+
+1. [What This Project Is](#1-what-this-project-is)
+2. [Prerequisites](#2-prerequisites)
+3. [Quick Start (5 Minutes)](#3-quick-start-5-minutes)
+4. [Dependency Pinning & Lock Files](#4-dependency-pinning--lock-files)
+5. [Repository Layout](#5-repository-layout)
+6. [AI-Assisted Development (Per-User Access)](#6-ai-assisted-development-per-user-access)
+7. [Pull Request Workflow](#7-pull-request-workflow)
+8. [Testing & Quality Gates](#8-testing--quality-gates)
+9. [Documentation Map](#9-documentation-map)
+10. [Troubleshooting](#10-troubleshooting)
+11. [Getting Help](#11-getting-help)
+
+---
+
+## 1. What This Project Is
+
+<PROJECT_NAME> is <WHAT IT DOES>. It is released under the <LICENSE> license and is developed in the open — anyone may read the source, file issues, propose changes, or fork it.
+
+Because the project is open source, contributions arrive from many different environments and toolchains. This document therefore specifies **exactly one canonical setup path** so that builds are reproducible for everyone, regardless of which editor or AI assistant a given contributor prefers.
+
+**Design goals**
+
+| Goal | How it is enforced |
+|---|---|
+| Reproducible installs | Fully pinned `requirements.txt` + hash-checked lock file |
+| Consistent formatting | `ruff` + `black`, run via pre-commit |
+| Predictable reviews | PR template, conventional commits, required CI |
+| Tool-neutral contribution | No contributor is required to use any specific AI tool |
+
+---
+
+## 2. Prerequisites
+
+| Requirement | Minimum | Check |
+|---|---|---|
+| Python | 3.11 | `python --version` |
+| Git | 2.40 | `git --version` |
+| pip | 24.0 | `pip --version` |
+| Node.js *(only if building docs)* | 20 LTS | `node --version` |
+| OS | Linux, macOS, or Windows + WSL2 | — |
+
+Recommended but optional:
+
+- [`uv`](https://docs.astral.sh/uv/) — fastest resolver, reads the same lock file
+- [`pre-commit`](https://pre-commit.com/) — runs lint/format hooks before each commit
+- [`gh`](https://cli.github.com/) — GitHub CLI, handy for opening PRs from the terminal
+
+---
+
+## 3. Quick Start (5 Minutes)
+
+```bash
+# 1. Fork on GitHub, then clone YOUR fork
+git clone https://github.com/<YOUR_USERNAME>/<REPO>.git
+cd <REPO>
+
+# 2. Add the upstream remote so you can stay in sync
+git remote add upstream https://github.com/<ORG>/<REPO>.git
+
+# 3. Create an isolated environment
+python -m venv .venv
+source .venv/bin/activate        # macOS / Linux
+# .venv\Scripts\activate         # Windows PowerShell
+
+# 4. Upgrade the installer itself, then install PINNED dependencies
+python -m pip install --upgrade pip==<PINNED_PIP_VERSION>
+pip install --require-hashes -r requirements.txt
+
+# 5. Install the package in editable mode with dev extras
+pip install -e ".[dev]"
+
+# 6. Install git hooks
+pre-commit install
+
+# 7. Verify everything works
+pytest -q
+```
+
+If step 7 passes, you are ready to work. Nothing else is required.
+
+---
+
+## 4. Dependency Pinning & Lock Files
+
+This project pins **everything**: the installer, the runtime dependencies, the dev dependencies, and the transitive tree. Three equivalent workflows are supported — pick whichever matches your habits, but commit the lock file your tool produces.
+
+### Option A — `pip-tools` (recommended, plain `pip`)
+
+Keep loose constraints in `.in` files; compile them into pinned, hash-checked `.txt` files.
+
+```bash
+pip install pip-tools
+
+# requirements.in holds top-level, loosely-ranged pins
+cat > requirements.in <<'EOF'
+httpx>=0.27,<0.28
+pydantic>=2.7,<3
+EOF
+
+# Compile to a fully pinned lock with hashes
+pip-compile --generate-hashes --output-file=requirements.txt requirements.in
+
+# Dev dependencies separately
+pip-compile --generate-hashes --output-file=requirements-dev.txt requirements-dev.in
+```
+
+Install exactly what the lock says, refusing anything whose hash does not match:
+
+```bash
+pip install --require-hashes -r requirements.txt
+```
+
+**Rules**
+
+- `requirements.in` / `requirements-dev.in` — hand-edited, ranges allowed.
+- `requirements.txt` / `requirements-dev.txt` — **generated, never hand-edited.** Every line carries `==` and a `--hash=sha256:...`.
+- Regenerate the lock in its own commit, titled `chore(deps): recompile lock files`.
+
+### Option B — `uv`
+
+```bash
+uv venv
+uv pip compile requirements.in --generate-hashes -o requirements.txt
+uv pip sync requirements.txt
+```
+
+`uv.lock` is committed alongside `pyproject.toml`.
+
+### Option C — Poetry
+
+```bash
+poetry lock          # writes poetry.lock
+poetry install --sync
+```
+
+Commit `poetry.lock`. Never commit a lock file generated by a different tool than the one the project declares in `pyproject.toml`.
+
+### Pin the interpreter too
+
+Declare the supported range once, in `pyproject.toml`:
+
+```toml
+[project]
+requires-python = ">=3.11,<3.14"
+```
+
+And pin the CI matrix so local and remote agree:
+
+```yaml
+# .github/workflows/ci.yml (excerpt)
+strategy:
+  matrix:
+    python-version: ["3.11", "3.12", "3.13"]
+```
+
+### Why pin?
+
+| Without pinning | With pinning |
+|---|---|
+| Build breaks when a transitive dep ships a breaking minor | Identical tree everywhere, forever |
+| "Works on my machine" bug reports | Reproducible bug reports |
+| Silent supply-chain substitution | Hash mismatch aborts the install |
+
+---
+
+## 5. Repository Layout
+
+```
+<REPO>/
+├── .github/
+│   ├── workflows/ci.yml          # lint, type-check, test matrix
+│   ├── ISSUE_TEMPLATE/
+│   └── pull_request_template.md
+├── docs/                         # long-form documentation
+│   ├── index.md                  # ← you are here
+│   ├── development.md            # architecture & internals
+│   ├── api-reference.md
+│   └── ai-tooling.md             # per-user AI access policy
+├── src/<package>/                # library code
+├── tests/                        # unit + integration tests
+├── requirements.in               # loose, hand-edited
+├── requirements.txt              # pinned, generated
+├── pyproject.toml                # metadata, tool config
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+└── LICENSE
+```
+
+---
+
+## 6. AI-Assisted Development (Per-User Access)
+
+The project does not mandate or bundle any AI assistant. Contributors may use whichever tool their own account or employer permits. This section records the landscape so reviewers know what to expect in a diff.
+
+### 6.1 The important caveat
+
+Availability is **per user and per subscription tier**, and it changes frequently — models are added and retired on a rolling basis. According to GitHub's own documentation, the supported-model list and the retirement schedule are revised regularly, and GitHub's changelog notes that model rollouts differ between surfaces (IDE, CLI, and web chat). Treat any table below as a snapshot, not a contract, and confirm against the live docs before relying on it.
+
+### 6.2 GitHub Copilot tiers (snapshot, Oct 2026)
+
+Reporting on Copilot's model lineup describes roughly 32 models from Anthropic, OpenAI, Google, xAI, Moonshot AI and Microsoft as of mid-October 2026, with access gated by plan:
+
+| Plan | Model selection |
+|---|---|
+| **Free / Student** | Auto selection only — Copilot chooses the model |
+| **Pro** | Auto, plus manual choice of smaller/faster models (Haiku- and Sonnet-class Claude, smaller GPT models, Gemini Flash, Grok, Kimi K3, MAI-Code-1.1-Flash) |
+| **Pro+ / Max / Business / Enterprise** | Everything above, plus frontier models (Opus- and Fable-class Claude, larger GPT tiers, Gemini 4 Argon) |
+
+Separately, GitHub documents **base** and **long-term support (LTS)** models that apply only to Business and Enterprise plans, and designates an LTS model that GitHub commits to keeping available for an extended period. Per GitHub's docs, GPT-5.3-Codex was designated the base model on 18 March 2026.
+
+Sources: GitHub Docs — *Supported AI models in GitHub Copilot*, *Plans for GitHub Copilot*, *Base and long-term support (LTS) models*; GitHub Changelog; third-party reporting on Copilot model tiers (October 2026).
+
+### 6.3 Extension and plugin surface
+
+Beyond raw model choice, Copilot can be extended:
+
+- **Copilot Extensions** — partner-built integrations announced by GitHub, including DataStax, Docker, LambdaTest, LaunchDarkly, McKinsey & Company, Microsoft Azure and Teams, MongoDB, Octopus Deploy, Pangea, Pinecone, Product Science, ReadMe, Sentry, and Stripe. Availability rolled out progressively; check the GitHub Marketplace for current listings.
+- **Copilot CLI plugins** — installable from marketplaces such as GitHub's official `github/copilot-plugins` and the community `github/awesome-copilot` collections, e.g. `copilot plugin install ai-ready@awesome-copilot`.
+
+Source: GitHub Blog — *Introducing GitHub Copilot Extensions*; community write-up on Copilot CLI plugins and marketplaces.
+
+### 6.4 Data-handling notes worth knowing
+
+GitHub documents a zero-data-retention agreement with Anthropic covering generally available Anthropic features in Copilot, with certain newer Claude models excluded by default and subject to a time-bound exemption through the end of 2026 for eligible enterprises. GitHub has also stated that, from 24 April, interactions from Free, Pro and Pro+ subscribers may be used to improve its models unless the user opts out.
+
+Practical consequence for this repo: **do not paste secrets, customer data, or unreleased security fixes into any AI assistant.** See `SECURITY.md`.
+
+### 6.5 House rules for AI-assisted contributions
+
+1. **Disclose, don't apologize.** Note in the PR description if an AI assistant produced a substantial portion of the diff.
+2. **You own the code.** The contributor is the author of record and answers review questions personally.
+3. **No generated licenses or headers.** Do not let a tool insert a license header it invented.
+4. **Tests are not optional.** Generated code arrives with tests, or it does not merge.
+5. **Verify claims.** AI-suggested APIs, flags, and version numbers must be checked against pinned dependency versions in this repo.
+6. **One tool, no lock-in.** Nothing in the build, CI, or docs may depend on a specific AI vendor.
+
+---
+
+## 7. Pull Request Workflow
+
+### 7.1 Branch naming
+
+```
+feat/<short-slug>       new capability
+fix/<short-slug>        bug fix
+docs/<short-slug>       documentation only
+chore/<short-slug>      tooling, deps, CI
+refactor/<short-slug>   behaviour-preserving restructuring
+```
+
+### 7.2 Conventional commits
+
+```
+feat(parser): support nested include directives
+fix(cli): exit non-zero when config is malformed
+docs(index): add pinned-install instructions
+chore(deps): recompile lock files
+```
+
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
+
+### 7.3 Step by step
+
+```bash
+# Stay current
+git fetch upstream
+git switch -c feat/my-change upstream/main
+
+# Work, committing in logical chunks
+git add -p
+git commit -m "feat(scope): describe the change"
+
+# Rebase rather than merge to keep history linear
+git fetch upstream
+git rebase upstream/main
+
+# Push and open the PR
+git push -u origin feat/my-change
+gh pr create --fill --base main
+```
+
+### 7.4 What reviewers look for
+
+| Area | Expectation |
+|---|---|
+| Scope | One logical change per PR; unrelated cleanup goes in its own PR |
+| Tests | New behaviour is covered; bug fixes include a regression test |
+| Types | Public functions annotated; `mypy` clean |
+| Deps | Any new dependency is justified, pinned, and reflected in the lock file |
+| Docs | User-visible changes update `docs/` and `CHANGELOG.md` |
+| Security | No secrets, no `eval` on untrusted input, no disabled TLS verification |
+| Accessibility | UI changes keep keyboard operability and accessible names intact |
+
+### 7.5 PR description template
+
+```markdown
+## Summary
+<what changed and why, in two sentences>
+
+## Linked issue
+Closes #<NUMBER>
+
+## Type of change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation
+- [ ] Dependency / tooling
+
+## How it was tested
+<commands run, environments covered>
+
+## AI assistance
+- [ ] No AI assistance used
+- [ ] AI assistance used — tool: <NAME>, scope: <WHAT IT GENERATED>
+
+## Checklist
+- [ ] Follows the style guide and passes `pre-commit run --all-files`
+- [ ] Tests added or updated, and passing locally
+- [ ] Lock files regenerated if dependencies changed
+- [ ] Docs and CHANGELOG updated
+- [ ] No secrets or personal data included
+```
+
+### 7.6 Review etiquette
+
+- Authors: keep PRs under ~400 changed lines where possible; respond to every comment, even if only to say "done" or "disagree because…".
+- Reviewers: distinguish blocking issues from nits — prefix nits with `nit:`. Approve when the change is an improvement, not when it is perfect.
+- Anyone may open a draft PR early to gather direction before investing effort.
+
+---
+
+## 8. Testing & Quality Gates
+
+```bash
+pre-commit run --all-files     # format + lint
+ruff check src/ tests/         # lint
+mypy src/                      # static types
+pytest -q                      # unit tests
+pytest --cov=<package> --cov-report=term-missing   # coverage
+```
+
+Required to merge:
+
+- All CI jobs green on the pinned Python matrix
+- Coverage not reduced relative to `main`
+- At least one maintainer approval
+- No unresolved review threads
+
+---
+
+## 9. Documentation Map
+
+| Document | Audience | Contents |
+|---|---|---|
+| `README.md` | Everyone | Pitch, badges, one-paragraph install |
+| `docs/index.md` *(this file)* | New contributors | Setup, pinning, PR flow, AI policy |
+| `docs/development.md` | Contributors | Architecture, module boundaries, debugging |
+| `docs/api-reference.md` | Integrators | Public API surface, signatures, examples |
+| `docs/ai-tooling.md` | Contributors | Fuller per-user AI access notes |
+| `CONTRIBUTING.md` | Contributors | Short pointer back to this file |
+| `CODE_OF_CONDUCT.md` | Everyone | Expected conduct and enforcement |
+| `SECURITY.md` | Everyone | Vulnerability reporting, data-handling rules |
+| `CHANGELOG.md` | Users | Notable changes per release |
+
+---
+
+## 10. Troubleshooting
+
+**`pip install` fails with a hash mismatch**
+Something in the resolved tree differs from the lock. Do not bypass with `--no-deps`. Delete `.venv`, re-run `pip install --require-hashes -r requirements.txt`, and if it still fails, open an issue with your platform and Python version.
+
+**`ModuleNotFoundError` for a local package**
+Editable install missing: `pip install -e ".[dev]"`.
+
+**`pre-commit` reformats files on every commit**
+Expected on first run. Stage the reformatted files and commit again.
+
+**CI passes locally but fails remotely**
+Compare Python versions. Locally you may be on 3.13 while CI also runs 3.11. Use `tox` or `uv` to test the full matrix.
+
+**Rebase conflicts in a lock file**
+Regenerate rather than resolve by hand: take `main`'s version, then re-run the compile step.
+
+---
+
+## 11. Getting Help
+
+- **Questions about usage** → GitHub Discussions
+- **Bug reports** → Issues, using the bug template
+- **Feature proposals** → Issues, using the feature template, or an RFC PR against `docs/rfcs/`
+- **Security disclosures** → private channel described in `SECURITY.md`; never a public issue
+- **Conduct concerns** → contacts listed in `CODE_OF_CONDUCT.md`
+
+---
+
+<div align="center">
+
+**Thanks for contributing.** Every issue triaged, typo fixed, and test written makes the project better for the next person.
+
+</div>
+
+---
+
+*Document version: 1.0 · Last reviewed: <DATE> · Maintainer: <MAINTAINER_HANDLE>*
+---
+title: About the blame attribution and spell check extension
+intro: 'Attribute every line of code to the person who wrote or authorized it, and run an automatic spell checker that never "corrects" a contributor''s name.'
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+topics:
+  - Repositories
+  - Extensions
+  - Code quality
+---
+
+<!--
+  docs/extensions.md
+  House style mirrors docs.github.com: YAML front matter, "In this article"
+  anchor list, sentence-case headings, second-person voice, callouts.
+
+  STATUS OF THIS DOCUMENT
+  -----------------------
+  This is a specification for a composed extension, not a description of a
+  single published product. No one extension on the GitHub Marketplace or the
+  VS Code Marketplace implements both halves as of October 2026. The building
+  blocks it assembles do exist and are cited in "Further reading".
+-->
+
+# About the blame attribution and spell check extension
+
+**Extension ID:** `blame-attrib-spellcheck`
+**Distribution:** GitHub App + VS Code extension + GitHub Action
+**Minimum permissions:** `contents: read`, `metadata: read`
+
+## In this article
+
+- [About the extension](#about-the-extension)
+- [Part 1 — Blame attribution ("blame of clients")](#part-1--blame-attribution-blame-of-clients)
+- [Part 2 — Automatic spell check with author-name exemptions](#part-2--automatic-spell-check-with-author-name-exemptions)
+- [How the author allowlist is built](#how-the-author-allowlist-is-built)
+- [Multilingual support and per-file overrides](#multilingual-support-and-per-file-overrides)
+- [Symbol, identifier, and node-name handling](#symbol-identifier-and-node-name-handling)
+- [Installing the extension](#installing-the-extension)
+- [Configuring the allowlist](#configuring-the-allowlist)
+- [Autocorrect behaviour and safeguards](#autocorrect-behaviour-and-safeguards)
+- [Running the check in CI](#running-the-check-in-ci)
+- [Permissions and data handling](#permissions-and-data-handling)
+- [Troubleshooting](#troubleshooting)
+- [Further reading](#further-reading)
+
+---
+
+## About the extension
+
+Two problems recur in repositories with many contributors:
+
+1. **Attribution is invisible.** Git records who touched a line, but reviewers, auditors, and downstream consumers rarely see it. When a client asks "who authorized this code?", the answer is buried in `git log`.
+2. **Spell checkers fight contributor names.** Generic spell checkers flag surnames, handles, and organization names as misspellings, so teams either disable the checker or drown in false positives. Worse, an aggressive autocorrect can silently rewrite a person's name.
+
+This extension addresses both by treating **authorship as the dictionary**. Every name that git can attribute to a line — the author, the committer, anyone in a `Signed-off-by` or `Co-authored-by` trailer, and every handle listed in `CODEOWNERS` — becomes a protected term. The spell checker corrects everything else and refuses to touch those terms.
+
+> [!NOTE]
+> The extension never invents an allowlist from nothing. If a name is not in git history, in `CODEOWNERS`, or in an explicit `.mailmap` mapping, it is not protected. See [Configuring the allowlist](#configuring-the-allowlist).
+
+---
+
+## Part 1 — Blame attribution ("blame of clients")
+
+### What "blame of clients" means here
+
+The phrase describes surfacing, per line and per file, the identity of the party responsible for the code — whether that party is an employee, a contractor, an agency, or a client who supplied or approved the implementation. The extension renders three views.
+
+| View | Where it appears | What it shows |
+|---|---|---|
+| **Inline blame** | Editor gutter, next to each line | Author, commit SHA, relative date, and whether the author is a `CODEOWNERS` entry for that path |
+| **Attribution panel** | Sidebar | Per-file rollup: percentage of lines by author, first and last touch, count of lines with no `Signed-off-by` trailer |
+| **Authorization report** | Comment on the pull request | Ordered list of everyone who authored, committed, signed off, or approved, with links to the commit or review |
+
+### Canonicalizing identities first
+
+Before any attribution is displayed, run identities through `.mailmap` so that the same person appearing under several addresses collapses to one canonical name:
+
+```text
+# .mailmap
+Ada Lovelace <ada@example.com> <ada.lovelace@old-domain.example>
+Ada Lovelace <ada@example.com> Client Contractor <contractor@agency.example>
+```
+
+Without this step, a single contributor can appear as five different "clients" in the rollup.
+
+### Ignoring mechanical commits
+
+Reformatting sweeps, lock-file regeneration, and vendored drops destroy blame signal. Record them once in `.git-blame-ignore-revs` and pass the file to every blame call:
+
+```bash
+# .git-blame-ignore-revs
+# chore: apply prettier to entire repository
+9c2f1a4e8b7d6c5f4e3a2b1c0d9e8f7a6b5c4d3e
+# chore(deps): recompile lock files
+1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+```
+
+```bash
+git blame --ignore-revs-file .git-blame-ignore-revs -- src/module.py
+```
+
+Configure it permanently for the local clone:
+
+```bash
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
+### Extracting the authorization trail
+
+Approval evidence lives in commit trailers and in the review record, not only in `git blame`:
+
+```bash
+# Signed-off-by and Co-authored-by trailers across the whole history
+git log --format='%(trailers:key=Signed-off-by,valueonly)' | sort -u
+git log --format='%(trailers:key=Co-authored-by,valueonly)' | sort -u
+
+# Merge commits, which record who accepted the change
+git log --merges --format='%h %an <%ae> %s'
+```
+
+The extension merges these with `CODEOWNERS` matches to produce the authorization report. A line counts as *authorized* when at least one of the following is true:
+
+- the commit carries a `Signed-off-by` trailer, or
+- the touched path is matched by a `CODEOWNERS` rule and the corresponding owner approved the pull request, or
+- the merge was performed by an account with write access to the target branch.
+
+Anything else is reported as **unauthorized** in the panel — informational only, never a merge blocker unless you opt in.
+
+---
+
+## Part 2 — Automatic spell check with author-name exemptions
+
+### Design principle
+
+The checker has exactly one protected class of terms: **names of people and organizations that git attributes to the code being checked.** Those terms are treated as correct by definition. Everything else is fair game.
+
+### Protected versus corrected
+
+| Term type | Example | Behaviour |
+|---|---|---|
+| Contributor surname | `Okonkwo` | Protected — never flagged, never rewritten |
+| Contributor handle | `@ada-lovelace` | Protected |
+| Organization in `CODEOWNERS` | `@acme-platform-team` | Protected |
+| `Signed-off-by` name | `Client Contractor` | Protected |
+| Ordinary misspelling | `recieve` | Corrected to `receive` |
+| Domain jargon | `webhook`, `idempotent` | Protected via a project dictionary, not via authorship |
+| Identifier in code | `getUsrRecrd()` | Skipped by default; opt in per-language |
+
+### Correction versus protection precedence
+
+When a token matches both a protected name and a known misspelling — for example a surname that coincides with a common typo — **protection wins.** The extension logs the collision to the attribution panel so a maintainer can resolve it deliberately rather than letting an autocorrect silently rename a person.
+
+---
+
+## Multilingual support and per-file overrides
+
+### Locale-aware checking
+
+Different parts of a repository may be written in different languages. The extension supports per-file locale configuration using the `languageSettings` mechanism, which separates **spoken language** (locale) from **programming language** (file type).
+
+```json
+{
+  "language": "en",
+  "languageSettings": [
+    {
+      "languageId": "",
+      "locale": "en",
+      "description": "Default for English content"
+    },
+    {
+      "languageId": "python,javascript",
+      "locale": "es",
+      "dictionaries": ["es"]
+    },
+    {
+      "languageId": "markdown",
+      "locale": "de",
+      "dictionaries": ["de-de"]
+    },
+    {
+      "languageId": "latex",
+      "locale": "fr",
+      "dictionaries": ["fr-fr"]
+    }
+  ]
+}
+```
+
+| Field | Purpose |
+|---|---|
+| `languageId` | Programming language (file type): `python`, `markdown`, `latex`, etc. Use `""` to match all file types. |
+| `locale` | Spoken language locale: `en-US`, `de-AT`, `zh-CN`. Use `""` to match all locales. |
+| `dictionaries` | Which dictionaries to enable for this combination. |
+
+Multiple locales can be specified: `"locale": "en, en-US"` matches both US and generic English.
+
+### File-type overrides
+
+For files that don't match standard extensions, force a specific treatment:
+
+```json
+{
+  "overrides": [
+    {
+      "filename": "/.xyz",
+      "languageId": "javascript"
+    },
+    {
+      "filename": "/docs/**/*.txt",
+      "languageId": "markdown",
+      "dictionaries": ["en-gb"]
+    },
+    {
+      "filename": "/tests/**/*.ts",
+      "dictionaries": ["en-us", "lorem-ipsum"]
+    }
+  ]
+}
+```
+
+### Available language dictionaries
+
+CSpell maintains separate dictionaries for dozens of spoken and programming languages. Some examples:
+
+| Locale | Dictionary ID | File types |
+|---|---|---|
+| English (US) | `en-us` | All |
+| English (GB) | `en-gb` | All |
+| Spanish | `es-es` | All |
+| French | `fr-fr` | All |
+| German | `de-de` | All |
+| Chinese | `zh` | All |
+| Portuguese (BR) | `pt-br` | All |
+| Japanese | `ja` | All |
+| Python | `python` | `.py` files |
+| JavaScript | `javascript` | `.js`, `.jsx` |
+| TypeScript | `typescript` | `.ts`, `.tsx` |
+| Markdown | `markdown` | `.md` |
+| Rust | `rust` | `.rs` |
+| Go | `go` | `.go` |
+
+See [cspell-dicts](https://github.com/streetsidesoftware/cspell-dicts) for the full catalog.
+
+---
+
+## Symbol, identifier, and node-name handling
+
+The extension distinguishes between **spelling errors** (real words that are misspelled) and **structural tokens** (symbols, identifiers, escape sequences, and node names that spell check should not interpret).
+
+### What is automatically ignored
+
+| Token class | Examples | Treatment |
+|---|---|---|
+| **Punctuation** | `!`, `.`, `/`, `*`, `{}`, `[]` | Never checked — these are structural separators |
+| **Path separators** | `//`, `./`, `../` | Ignored by default patterns |
+| **Escape sequences** | `\n`, `\t`, `\\` | Stripped before checking; `\narrow` → `narrow` if valid |
+| **Null/bool literals** | `null`, `nil`, `false`, `true` | Protected via `softwareTerms` dictionary |
+| **Short tokens (<4 chars)** | `n`, `f`, `e.i` | Skipped by default (`minWordLength: 4`) |
+| **Hex/numeric** | `0x[0-9a-f]+` | Ignored via `ignoreRegExpList` |
+| **Node names / identifiers** | `nodeName`, `fileNode`, `dataNode` | Checked as compounds; protected via `softwareTerms` |
+| **URLs / paths** | `https://`, `/var/log/` | Ignored via pattern matching |
+| **Comments** | `// TODO`, `# FIXME` | Checked by default; configurable |
+
+### Patterns to protect
+
+```json
+{
+  "ignoreRegExpList": [
+    "0x[0-9a-fA-F]+",                    // Hex literals
+    "/{1,2}[a-zA-Z0-9._/-]+",            // URLs and paths
+    "[A-Z]{2,}(?:-[A-Z]{2,})*",          // Constant identifiers
+    "node:\\w+",                        // Node.js builtin modules
+    "^#!.*$",                           // Shebangs
+    "^[\\s]*//[\\s]*$|"                 // Blank comments
+  ],
+  "patterns": [
+    {
+      "name": "identifier-snake",
+      "pattern": "/([a-z][a-z0-9]*(?:_[a-z][a-z0-9]*)*)/g"
+    },
+    {
+      "name": "identifier-camel",
+      "pattern": "/([a-z][a-z0-9]*(?:[A-Z][a-z0-9]*)*)/g"
+    },
+    {
+      "name": "escape-sequence",
+      "pattern": "/\\\\[nrt0\\\\]/g"
+    }
+  ]
+}
+```
+
+### Identifier tokenization
+
+Identifier tokens (snake_case, camelCase, PascalCase) are split into constituent words before checking:
+
+| Input | Split tokens | Checked? |
+|---|---|---|
+| `getUserRecord` | `getUserRecord` (compound), or optionally `getUserRecord` | Skipped if `checkIdentifiers: false` (default) |
+| `getUser_Record` | `user`, `record` | Each word checked if in prose; skipped in code |
+| `XMLParser` | `XML`, `Parser` | `XML` protected as acronym; `Parser` in `softwareTerms` |
+| `nullPointerExcep` | `null`, `pointer`, `except` | `null` protected; others checked in comments |
+
+Control with `checkIdentifiers` to enable/disable identifier checking:
+
+```json
+{
+  "checkIdentifiers": false,
+  "checkStrings": true,
+  "checkComments": true,
+  "checkJSXText": false
+}
+```
+
+### Device and file detail auto-detection
+
+The extension scans file paths and node names to extract device/file metadata:
+
+```python
+def extract_device_tokens(path: str) -> set[str]:
+    """Extract potential device or file tokens from paths and node names.
+    
+    Examples:
+        '/dev/sda1' -> {'sda', 'sda1'}
+        'node_data_controller' -> {'controller', 'data'}
+        './config.yml' -> {'config'}
+    """
+    import re
+    
+    # Strip leading slashes and file extensions
+    path = re.sub(r'^[/\\.]+', '', path)
+    path = re.sub(r'\.[a-zA-Z0-9]+$', '', path)
+    
+    # Split on delimiters
+    tokens = re.split(r'[/\\_.-]+', path)
+    
+    # Filter: keep >=2 char tokens that aren't pure numbers
+    return {t for t in tokens if len(t) >= 2 and not t.isdigit()}
+```
+
+These tokens are added to the `project-terms` dictionary automatically on generation.
+
+### `minWordLength` threshold
+
+Short tokens are inherently ambiguous (`n`, `f`, `e.i`). Set a minimum word length to avoid false positives:
+
+```json
+{
+  "minWordLength": 4
+}
+```
+
+This prevents flags on single-letter variables, short paths (`./`), or abbreviations (`IO`, `OS`). Increase to `5` for stricter checking, decrease to `3` for more granular control.
+
+---
+
+## How the author allowlist is built
+
+The allowlist is generated, not hand-written. Four sources feed it, in order of authority.
+
+### 1. Git blame and log identities
+
+```python
+#!/usr/bin/env python3
+"""Generate a protected-terms dictionary from git authorship.
+
+Usage:
+    python scripts/gen_author_dict.py .github/author-names.txt
+"""
+
+from __future__ import annotations
+
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+# Capitalised words of three or more characters, plus all-caps acronyms.
+NAME_TOKEN = re.compile(r"[A-Z][a-z]{2,}|[A-Z]{2,}")
+
+
+def git(*args: str) -> str:
+    """Run a git command and return stdout, tolerating a non-zero exit."""
+    result = subprocess.run(
+        ["git", *args],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return result.stdout
+
+
+def tracked_files() -> list[str]:
+    return [p for p in git("ls-files").splitlines() if p]
+
+
+def collect_tokens() -> set[str]:
+    tokens: set[str] = set()
+    files = tracked_files()
+
+    if files:
+        porcelain = git("blame", "--line-porcelain", "--", *files)
+        for line in porcelain.splitlines():
+            if line.startswith(("author ", "committer ")):
+                _, _, who = line.partition(" ")
+                tokens.update(NAME_TOKEN.findall(who))
+
+    # Trailers carry sign-off names that may not appear as an author.
+    for key in ("Signed-off-by", "Co-authored-by"):
+        trailer = git("log", f"--format=%(trailers:key={key},valueonly)")
+        tokens.update(NAME_TOKEN.findall(trailer))
+
+    return tokens
+
+
+def main(argv: list[str]) -> int:
+    out = Path(argv[1] if len(argv) > 1 else ".github/author-names.txt")
+    words = sorted(collect_tokens(), key=str.lower)
+
+    header = (
+        "# GENERATED FILE - DO NOT EDIT BY HAND\n"
+        "# Produced by scripts/gen_author_dict.py from git authorship.\n"
+        f"# {len(words)} protected terms.\n"
+    )
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(header + "\n".join(words) + "\n", encoding="utf-8")
+    print(f"wrote {len(words)} protected terms to {out}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv))
+```
+
+### 2. `CODEOWNERS`
+
+Parse the ownership file and extract every `@handle` and team slug. These are authorized parties by definition, so their names are protected even if they have never committed a line.
+
+```python
+def codeowners_terms(root: Path = Path(".")) -> set[str]:
+    candidates = [
+        root / "CODEOWNERS",
+        root / ".github" / "CODEOWNERS",
+        root / "docs" / "CODEOWNERS",
+    ]
+    terms: set[str] = set()
+    for path in candidates:
+        if not path.is_file():
+            continue
+        for raw in path.read_text(encoding="utf-8").splitlines():
+            line = raw.split("#", 1)[0].strip()
+            if not line:
+                continue
+            for field in line.split()[1:]:  # field 0 is the path pattern
+                terms.add(field.lstrip("@").replace("/", "-"))
+    return terms
+```
+
+### 3. `.mailmap` canonical names
+
+Every canonical name in `.mailmap` is protected, which prevents the checker from "correcting" a legal name that differs from a display handle.
+
+### 4. An explicit project dictionary
+
+Domain vocabulary that has nothing to do with authorship — product names, protocol terms, internal codenames — lives in a separate, hand-maintained file. Keeping it separate means regenerating the author list never clobbers curated words.
+
+---
+
+## Installing the extension
+
+### As a VS Code extension
+
+```bash
+code --install-extension <PUBLISHER>.blame-attrib-spellcheck
+```
+
+The extension bundles a spell-check engine and reads the same dictionary files as the CI job, so editor and pipeline agree.
+
+### As a GitHub App
+
+Install from the repository's **Settings → GitHub Apps** page. Grant `contents: read` and `metadata: read`. No write scopes are requested; the extension never pushes commits.
+
+### As a GitHub Action
+
+```yaml
+# .github/workflows/attribution-spellcheck.yml
+name: Attribution and spell check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write   # only to post the attribution report
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # blame needs full history
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate protected terms from authorship
+        run: python scripts/gen_author_dict.py .github/author-names.txt
+
+      - name: Spell check
+        run: npx --yes cspell "**/*.{md,ts,js,py,yml,yaml}" --no-progress
+
+      - name: Post attribution report
+        if: github.event_name == 'pull_request'
+        run: npx --yes <PUBLISHER>/blame-attrib-spellcheck report --pr "${{ github.event.number }}"
+```
+
+> [!IMPORTANT]
+> `fetch-depth: 0` is required. A shallow clone truncates history, which truncates the allowlist, which produces false positives on contributor names.
+
+---
+
+## Configuring the allowlist
+
+Point the spell checker at the generated dictionary. The example below uses the cspell configuration format, which the bundled engine and the CI job both read.
+
+```jsonc
+// cspell.json
+{
+  "version": "0.2",
+  "language": "en",
+  "allowCompoundWords": true,
+  
+  "dictionaryDefinitions": [
+    {
+      "name": "author-names",
+      "path": "./.github/author-names.txt",
+      "addWords": true,
+      "description": "GENERATED from git authorship. Do not edit."
+    },
+    {
+      "name": "project-terms",
+      "path": "./.github/project-terms.txt",
+      "addWords": true,
+      "description": "Hand-maintained domain vocabulary."
+    }
+  ],
+  
+  "dictionaries": [
+    "author-names",
+    "project-terms",
+    "softwareTerms",
+    "companies"
+  ],
+  
+  "ignorePaths": [
+    "node_modules/**",
+    ".git/**",
+    "dist/**",
+    "**/*.lock",
+    "**/*.min.js"
+  ],
+  
+  "protectFromCorrection": [
+    "author-names",
+    "project-terms"
+  ],
+  
+  "ignoreRegExpList": [
+    "0x[0-9a-fA-F]+",
+    "/{1,2}[a-zA-Z0-9._/-]+"
+  ],
+  
+  "languageSettings": [
+    {
+      "languageId": "python,javascript",
+      "locale": "en",
+      "dictionaries": ["en-us", "python", "javascript"]
+    },
+    {
+      "languageId": "markdown",
+      "locale": "en",
+      "dictionaries": ["en-us"]
+    },
+    {
+      "languageId": "python",
+      "locale": "es",
+      "dictionaries": ["en-us", "es-es"]
+    }
+  ],
+  
+  "overrides": [
+    {
+      "filename": "/tests/**/*.ts",
+      "dictionaries": ["en-us", "lorem-ipsum"]
+    },
+    {
+      "filename": "/docs/**/*.md",
+      "languageId": "markdown",
+      "locale": "en-GB"
+    }
+  ],
+  
+  "checkIdentifiers": false,
+  "checkStrings": true,
+  "checkComments": true,
+  "minWordLength": 4,
+  
+  "enabled": true
+}
+```
+
+`protectFromCorrection` is the extension's addition to the standard schema: it marks the listed dictionaries as **read-only for the autocorrect pass**. Terms from those dictionaries may still be reported as unknown if they appear outside the listed files, but they are never rewritten.
+
+### Adding a name manually
+
+If someone contributes under a pseudonym that git cannot associate with a legal name, add a `.mailmap` entry rather than editing the generated dictionary:
+
+```text
+Legal Name <legal@example.com> Handle <handle@users.noreply.github.com>
+```
+
+The next generation run picks it up. Hand edits to `author-names.txt` are discarded on regeneration — the file carries a `DO NOT EDIT` header for that reason.
+
+---
+
+## Autocorrect behaviour and safeguards
+
+Autocorrect is the highest-risk part of the extension, because a bad correction to a name is a silent attribution error. Five guards apply.
+
+1. **Protection beats correction.** A token in a protected dictionary is never a correction candidate, even when it exactly matches a known misspelling.
+2. **Identifiers are skipped by default.** Corrections apply to prose — Markdown, comments, docstrings, commit messages, and user-facing strings. Applying them to code identifiers requires explicit opt-in per language.
+3. **Corrections arrive as suggestions, not silent writes.** The editor presents a quick fix; CI reports an annotation. Neither rewrites a file without a human accepting the change.
+4. **Case is preserved.** A correction to a lower-case word never changes the capitalisation of the original token.
+5. **Every correction is logged.** The attribution panel lists applied corrections with the rule that triggered them, so a maintainer can audit what changed and revert.
+
+### Reporting levels
+
+| Level | Effect |
+|---|---|
+| `off` | No checking |
+| `report` | Annotate only; never offer a fix |
+| `suggest` | Offer quick fixes; CI annotates but exits 0 *(default)* |
+| `enforce` | CI exits non-zero on any unprotected misspelling |
+
+Start at `suggest`. Move to `enforce` only after the generated dictionary has stabilised across a few dozen pull requests.
+
+---
+
+## Running the check in CI
+
+The extension complements, rather than replaces, the standard spell-check tooling. A typical pipeline runs two passes:
+
+```bash
+# Pass 1: dedicated typo scanner, tuned for source code
+typos --config .typos.toml
+
+# Pass 2: dictionary-driven checker with the generated author list
+npx cspell "**/*.{md,ts,js,py,yml,yaml}" --no-progress
+```
+
+Both passes read the same protected-terms file, so a name exempted in the editor is exempted in CI. Divergence between the two is the single most common source of confusing failures — if the editor is quiet and CI complains, check that both point at `.github/author-names.txt`.
+
+---
+
+## Permissions and data handling
+
+| Concern | Position |
+|---|---|
+| Scopes requested | `contents: read`, `metadata: read`; `pull-requests: write` only for the report comment |
+| Data sent off-platform | None. Dictionary generation and checking run locally or in your runner |
+| Personal data | Names and email addresses already exist in public git history; the extension reads them, it does not enrich them |
+| Retention | Generated dictionaries live in the repository and are subject to your own retention policy |
+| Third-party models | No AI model is invoked. The checker is a deterministic dictionary lookup |
+
+> [!WARNING]
+> Because the generated dictionary contains contributor names and email-derived handles, treat `.github/author-names.txt` as you would any other file containing personal data. If your project strips authorship from public history, do not commit the generated file — generate it in CI and cache it as an ephemeral artifact instead.
+
+---
+
+## Troubleshooting
+
+**Contributor names are flagged despite the extension being installed**
+History is shallow. Confirm `fetch-depth: 0` in the checkout step and re-run generation.
+
+**A name is flagged only in one file**
+The token is not capitalised in the way the generator expects. Either adjust `NAME_TOKEN` in the generator or add the term to `project-terms.txt`.
+
+**A correction renamed a person**
+Protection failed. Check that the term is in `author-names.txt` *and* that `protectFromCorrection` lists the dictionary it came from. Report the collision; the extension should have logged it.
+
+**The report shows lines as unauthorized**
+Those commits lack a `Signed-off-by` trailer and were merged without a matching `CODEOWNERS` approval. This is informational. Adopt `git commit -s` if you want the trailer populated by default.
+
+**Blame attributes a reformat to the wrong person**
+The sweep commit is not in `.git-blame-ignore-revs`. Add its SHA and regenerate.
+
+**False positives on short tokens (n, f, e.i)**
+Increase `minWordLength` to `4` (default) or filter the specific pattern in `ignoreRegExpList`.
+
+**Multi-language files use the wrong dictionary**
+Verify the `languageId` and `locale` fields in `languageSettings` match the file. Use `--verbose` on the CLI to trace which settings are applied.
+
+---
+
+## Further reading
+
+| Resource | What it covers |
+|---|---|
+| [cspell.org](https://cspell.org) | The dictionary-driven engine this extension wraps; CLI, ESLint plugin, VS Code integration |
+| [Code Spell Checker (VS Code Marketplace)](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) | The editor surface, `cSpell.userWords`, ignore paths, and quick-fix suggestions |
+| [cspell-dicts](https://github.com/streetsidesoftware/cspell-dicts) | Upstream dictionaries for languages, companies, and software terms |
+| [Language Settings (cSpell)](https://cspell.org/docs/Configuration/language-settings) | Per-language configuration with `languageId` and `locale` |
+| [Sourcegraph code-ownership](https://github.com/sourcegraph/sourcegraph-code-ownership) | Reference implementation for surfacing `CODEOWNERS` owners in a file header |
+| [Codeowners Plus (GitHub Marketplace)](https://github.com/marketplace/actions/codeowners-plus) | Action that resolves and reports code owners on pull requests |
+| [Git Blame / GitLens extensions](https://code.visualstudio.com/blogs/2016/07/29/extensions-roundup-git) | Prior art for inline blame display in the editor gutter |
+
+---
+
+*Specification version 1.1 · Reviewed 29 October 2026 · Status: proposal · Added multilingual support, symbol/node-name handling, and auto device-detail detection*
+---
+title: About the blame attribution and spell check extension
+intro: 'Attribute every line of code to the person who wrote or authorized it, and run an automatic spell checker that never "corrects" a contributor''s name.'
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+topics:
+  - Repositories
+  - Extensions
+  - Code quality
+---
+
+<!--
+  docs/extensions.md
+  House style mirrors docs.github.com: YAML front matter, "In this article"
+  anchor list, sentence-case headings, second-person voice, callouts.
+
+  STATUS OF THIS DOCUMENT
+  -----------------------
+  This is a specification for a composed extension, not a description of a
+  single published product. No one extension on the GitHub Marketplace or the
+  VS Code Marketplace implements both halves as of October 2026. The building
+  blocks it assembles do exist and are cited in "Further reading".
+-->
+
+# About the blame attribution and spell check extension
+
+**Extension ID:** `blame-attrib-spellcheck`
+**Distribution:** GitHub App + VS Code extension + GitHub Action
+**Minimum permissions:** `contents: read`, `metadata: read`
+
+## In this article
+
+- [About the extension](#about-the-extension)
+- [Part 1 — Blame attribution ("blame of clients")](#part-1--blame-attribution-blame-of-clients)
+- [Part 2 — Automatic spell check with author-name exemptions](#part-2--automatic-spell-check-with-author-name-exemptions)
+- [How the author allowlist is built](#how-the-author-allowlist-is-built)
+- [Multilingual support and per-file overrides](#multilingual-support-and-per-file-overrides)
+- [Symbol, identifier, and node-name handling](#symbol-identifier-and-node-name-handling)
+- [Installing the extension](#installing-the-extension)
+- [Configuring the allowlist](#configuring-the-allowlist)
+- [Autocorrect behaviour and safeguards](#autocorrect-behaviour-and-safeguards)
+- [Running the check in CI](#running-the-check-in-ci)
+- [Permissions and data handling](#permissions-and-data-handling)
+- [Troubleshooting](#troubleshooting)
+- [Further reading](#further-reading)
+
+---
+
+## About the extension
+
+Two problems recur in repositories with many contributors:
+
+1. **Attribution is invisible.** Git records who touched a line, but reviewers, auditors, and downstream consumers rarely see it. When a client asks "who authorized this code?", the answer is buried in `git log`.
+2. **Spell checkers fight contributor names.** Generic spell checkers flag surnames, handles, and organization names as misspellings, so teams either disable the checker or drown in false positives. Worse, an aggressive autocorrect can silently rewrite a person's name.
+
+This extension addresses both by treating **authorship as the dictionary**. Every name that git can attribute to a line — the author, the committer, anyone in a `Signed-off-by` or `Co-authored-by` trailer, and every handle listed in `CODEOWNERS` — becomes a protected term. The spell checker corrects everything else and refuses to touch those terms.
+
+> [!NOTE]
+> The extension never invents an allowlist from nothing. If a name is not in git history, in `CODEOWNERS`, or in an explicit `.mailmap` mapping, it is not protected. See [Configuring the allowlist](#configuring-the-allowlist).
+
+---
+
+## Part 1 — Blame attribution ("blame of clients")
+
+### What "blame of clients" means here
+
+The phrase describes surfacing, per line and per file, the identity of the party responsible for the code — whether that party is an employee, a contractor, an agency, or a client who supplied or approved the implementation. The extension renders three views.
+
+| View | Where it appears | What it shows |
+|---|---|---|
+| **Inline blame** | Editor gutter, next to each line | Author, commit SHA, relative date, and whether the author is a `CODEOWNERS` entry for that path |
+| **Attribution panel** | Sidebar | Per-file rollup: percentage of lines by author, first and last touch, count of lines with no `Signed-off-by` trailer |
+| **Authorization report** | Comment on the pull request | Ordered list of everyone who authored, committed, signed off, or approved, with links to the commit or review |
+
+### Canonicalizing identities first
+
+Before any attribution is displayed, run identities through `.mailmap` so that the same person appearing under several addresses collapses to one canonical name:
+
+```text
+# .mailmap
+Ada Lovelace <ada@example.com> <ada.lovelace@old-domain.example>
+Ada Lovelace <ada@example.com> Client Contractor <contractor@agency.example>
+```
+
+Without this step, a single contributor can appear as five different "clients" in the rollup.
+
+### Ignoring mechanical commits
+
+Reformatting sweeps, lock-file regeneration, and vendored drops destroy blame signal. Record them once in `.git-blame-ignore-revs` and pass the file to every blame call:
+
+```bash
+# .git-blame-ignore-revs
+# chore: apply prettier to entire repository
+9c2f1a4e8b7d6c5f4e3a2b1c0d9e8f7a6b5c4d3e
+# chore(deps): recompile lock files
+1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+```
+
+```bash
+git blame --ignore-revs-file .git-blame-ignore-revs -- src/module.py
+```
+
+Configure it permanently for the local clone:
+
+```bash
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
+### Extracting the authorization trail
+
+Approval evidence lives in commit trailers and in the review record, not only in `git blame`:
+
+```bash
+# Signed-off-by and Co-authored-by trailers across the whole history
+git log --format='%(trailers:key=Signed-off-by,valueonly)' | sort -u
+git log --format='%(trailers:key=Co-authored-by,valueonly)' | sort -u
+
+# Merge commits, which record who accepted the change
+git log --merges --format='%h %an <%ae> %s'
+```
+
+The extension merges these with `CODEOWNERS` matches to produce the authorization report. A line counts as *authorized* when at least one of the following is true:
+
+- the commit carries a `Signed-off-by` trailer, or
+- the touched path is matched by a `CODEOWNERS` rule and the corresponding owner approved the pull request, or
+- the merge was performed by an account with write access to the target branch.
+
+Anything else is reported as **unauthorized** in the panel — informational only, never a merge blocker unless you opt in.
+
+---
+
+## Part 2 — Automatic spell check with author-name exemptions
+
+### Design principle
+
+The checker has exactly one protected class of terms: **names of people and organizations that git attributes to the code being checked.** Those terms are treated as correct by definition. Everything else is fair game.
+
+### Protected versus corrected
+
+| Term type | Example | Behaviour |
+|---|---|---|
+| Contributor surname | `Okonkwo` | Protected — never flagged, never rewritten |
+| Contributor handle | `@ada-lovelace` | Protected |
+| Organization in `CODEOWNERS` | `@acme-platform-team` | Protected |
+| `Signed-off-by` name | `Client Contractor` | Protected |
+| Ordinary misspelling | `recieve` | Corrected to `receive` |
+| Domain jargon | `webhook`, `idempotent` | Protected via a project dictionary, not via authorship |
+| Identifier in code | `getUsrRecrd()` | Skipped by default; opt in per-language |
+
+### Correction versus protection precedence
+
+When a token matches both a protected name and a known misspelling — for example a surname that coincides with a common typo — **protection wins.** The extension logs the collision to the attribution panel so a maintainer can resolve it deliberately rather than letting an autocorrect silently rename a person.
+
+---
+
+## Multilingual support and per-file overrides
+
+### Locale-aware checking
+
+Different parts of a repository may be written in different languages. The extension supports per-file locale configuration using the `languageSettings` mechanism, which separates **spoken language** (locale) from **programming language** (file type).
+
+```json
+{
+  "language": "en",
+  "languageSettings": [
+    {
+      "languageId": "",
+      "locale": "en",
+      "description": "Default for English content"
+    },
+    {
+      "languageId": "python,javascript",
+      "locale": "es",
+      "dictionaries": ["es"]
+    },
+    {
+      "languageId": "markdown",
+      "locale": "de",
+      "dictionaries": ["de-de"]
+    },
+    {
+      "languageId": "latex",
+      "locale": "fr",
+      "dictionaries": ["fr-fr"]
+    }
+  ]
+}
+```
+
+| Field | Purpose |
+|---|---|
+| `languageId` | Programming language (file type): `python`, `markdown`, `latex`, etc. Use `""` to match all file types. |
+| `locale` | Spoken language locale: `en-US`, `de-AT`, `zh-CN`. Use `""` to match all locales. |
+| `dictionaries` | Which dictionaries to enable for this combination. |
+
+Multiple locales can be specified: `"locale": "en, en-US"` matches both US and generic English.
+
+### File-type overrides
+
+For files that don't match standard extensions, force a specific treatment:
+
+```json
+{
+  "overrides": [
+    {
+      "filename": "/.xyz",
+      "languageId": "javascript"
+    },
+    {
+      "filename": "/docs/**/*.txt",
+      "languageId": "markdown",
+      "dictionaries": ["en-gb"]
+    },
+    {
+      "filename": "/tests/**/*.ts",
+      "dictionaries": ["en-us", "lorem-ipsum"]
+    }
+  ]
+}
+```
+
+### Available language dictionaries
+
+CSpell maintains separate dictionaries for dozens of spoken and programming languages. Some examples:
+
+| Locale | Dictionary ID | File types |
+|---|---|---|
+| English (US) | `en-us` | All |
+| English (GB) | `en-gb` | All |
+| Spanish | `es-es` | All |
+| French | `fr-fr` | All |
+| German | `de-de` | All |
+| Chinese | `zh` | All |
+| Portuguese (BR) | `pt-br` | All |
+| Japanese | `ja` | All |
+| Python | `python` | `.py` files |
+| JavaScript | `javascript` | `.js`, `.jsx` |
+| TypeScript | `typescript` | `.ts`, `.tsx` |
+| Markdown | `markdown` | `.md` |
+| Rust | `rust` | `.rs` |
+| Go | `go` | `.go` |
+
+See [cspell-dicts](https://github.com/streetsidesoftware/cspell-dicts) for the full catalog.
+
+---
+
+## Symbol, identifier, and node-name handling
+
+The extension distinguishes between **spelling errors** (real words that are misspelled) and **structural tokens** (symbols, identifiers, escape sequences, and node names that spell check should not interpret).
+
+### What is automatically ignored
+
+| Token class | Examples | Treatment |
+|---|---|---|
+| **Punctuation** | `!`, `.`, `/`, `*`, `{}`, `[]` | Never checked — these are structural separators |
+| **Path separators** | `//`, `./`, `../` | Ignored by default patterns |
+| **Escape sequences** | `\n`, `\t`, `\\` | Stripped before checking; `\narrow` → `narrow` if valid |
+| **Null/bool literals** | `null`, `nil`, `false`, `true` | Protected via `softwareTerms` dictionary |
+| **Short tokens (<4 chars)** | `n`, `f`, `e.i` | Skipped by default (`minWordLength: 4`) |
+| **Hex/numeric** | `0x[0-9a-f]+` | Ignored via `ignoreRegExpList` |
+| **Node names / identifiers** | `nodeName`, `fileNode`, `dataNode` | Checked as compounds; protected via `softwareTerms` |
+| **URLs / paths** | `https://`, `/var/log/` | Ignored via pattern matching |
+| **Comments** | `// TODO`, `# FIXME` | Checked by default; configurable |
+
+### Patterns to protect
+
+```json
+{
+  "ignoreRegExpList": [
+    "0x[0-9a-fA-F]+",                    // Hex literals
+    "/{1,2}[a-zA-Z0-9._/-]+",            // URLs and paths
+    "[A-Z]{2,}(?:-[A-Z]{2,})*",          // Constant identifiers
+    "node:\\w+",                        // Node.js builtin modules
+    "^#!.*$",                           // Shebangs
+    "^[\\s]*//[\\s]*$|"                 // Blank comments
+  ],
+  "patterns": [
+    {
+      "name": "identifier-snake",
+      "pattern": "/([a-z][a-z0-9]*(?:_[a-z][a-z0-9]*)*)/g"
+    },
+    {
+      "name": "identifier-camel",
+      "pattern": "/([a-z][a-z0-9]*(?:[A-Z][a-z0-9]*)*)/g"
+    },
+    {
+      "name": "escape-sequence",
+      "pattern": "/\\\\[nrt0\\\\]/g"
+    }
+  ]
+}
+```
+
+### Identifier tokenization
+
+Identifier tokens (snake_case, camelCase, PascalCase) are split into constituent words before checking:
+
+| Input | Split tokens | Checked? |
+|---|---|---|
+| `getUserRecord` | `getUserRecord` (compound), or optionally `getUserRecord` | Skipped if `checkIdentifiers: false` (default) |
+| `getUser_Record` | `user`, `record` | Each word checked if in prose; skipped in code |
+| `XMLParser` | `XML`, `Parser` | `XML` protected as acronym; `Parser` in `softwareTerms` |
+| `nullPointerExcep` | `null`, `pointer`, `except` | `null` protected; others checked in comments |
+
+Control with `checkIdentifiers` to enable/disable identifier checking:
+
+```json
+{
+  "checkIdentifiers": false,
+  "checkStrings": true,
+  "checkComments": true,
+  "checkJSXText": false
+}
+```
+
+### Device and file detail auto-detection
+
+The extension scans file paths and node names to extract device/file metadata:
+
+```python
+def extract_device_tokens(path: str) -> set[str]:
+    """Extract potential device or file tokens from paths and node names.
+    
+    Examples:
+        '/dev/sda1' -> {'sda', 'sda1'}
+        'node_data_controller' -> {'controller', 'data'}
+        './config.yml' -> {'config'}
+    """
+    import re
+    
+    # Strip leading slashes and file extensions
+    path = re.sub(r'^[/\\.]+', '', path)
+    path = re.sub(r'\.[a-zA-Z0-9]+$', '', path)
+    
+    # Split on delimiters
+    tokens = re.split(r'[/\\_.-]+', path)
+    
+    # Filter: keep >=2 char tokens that aren't pure numbers
+    return {t for t in tokens if len(t) >= 2 and not t.isdigit()}
+```
+
+These tokens are added to the `project-terms` dictionary automatically on generation.
+
+### `minWordLength` threshold
+
+Short tokens are inherently ambiguous (`n`, `f`, `e.i`). Set a minimum word length to avoid false positives:
+
+```json
+{
+  "minWordLength": 4
+}
+```
+
+This prevents flags on single-letter variables, short paths (`./`), or abbreviations (`IO`, `OS`). Increase to `5` for stricter checking, decrease to `3` for more granular control.
+
+---
+
+## How the author allowlist is built
+
+The allowlist is generated, not hand-written. Four sources feed it, in order of authority.
+
+### 1. Git blame and log identities
+
+```python
+#!/usr/bin/env python3
+"""Generate a protected-terms dictionary from git authorship.
+
+Usage:
+    python scripts/gen_author_dict.py .github/author-names.txt
+"""
+
+from __future__ import annotations
+
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+# Capitalised words of three or more characters, plus all-caps acronyms.
+NAME_TOKEN = re.compile(r"[A-Z][a-z]{2,}|[A-Z]{2,}")
+
+
+def git(*args: str) -> str:
+    """Run a git command and return stdout, tolerating a non-zero exit."""
+    result = subprocess.run(
+        ["git", *args],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return result.stdout
+
+
+def tracked_files() -> list[str]:
+    return [p for p in git("ls-files").splitlines() if p]
+
+
+def collect_tokens() -> set[str]:
+    tokens: set[str] = set()
+    files = tracked_files()
+
+    if files:
+        porcelain = git("blame", "--line-porcelain", "--", *files)
+        for line in porcelain.splitlines():
+            if line.startswith(("author ", "committer ")):
+                _, _, who = line.partition(" ")
+                tokens.update(NAME_TOKEN.findall(who))
+
+    # Trailers carry sign-off names that may not appear as an author.
+    for key in ("Signed-off-by", "Co-authored-by"):
+        trailer = git("log", f"--format=%(trailers:key={key},valueonly)")
+        tokens.update(NAME_TOKEN.findall(trailer))
+
+    return tokens
+
+
+def main(argv: list[str]) -> int:
+    out = Path(argv[1] if len(argv) > 1 else ".github/author-names.txt")
+    words = sorted(collect_tokens(), key=str.lower)
+
+    header = (
+        "# GENERATED FILE - DO NOT EDIT BY HAND\n"
+        "# Produced by scripts/gen_author_dict.py from git authorship.\n"
+        f"# {len(words)} protected terms.\n"
+    )
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(header + "\n".join(words) + "\n", encoding="utf-8")
+    print(f"wrote {len(words)} protected terms to {out}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv))
+```
+
+### 2. `CODEOWNERS`
+
+Parse the ownership file and extract every `@handle` and team slug. These are authorized parties by definition, so their names are protected even if they have never committed a line.
+
+```python
+def codeowners_terms(root: Path = Path(".")) -> set[str]:
+    candidates = [
+        root / "CODEOWNERS",
+        root / ".github" / "CODEOWNERS",
+        root / "docs" / "CODEOWNERS",
+    ]
+    terms: set[str] = set()
+    for path in candidates:
+        if not path.is_file():
+            continue
+        for raw in path.read_text(encoding="utf-8").splitlines():
+            line = raw.split("#", 1)[0].strip()
+            if not line:
+                continue
+            for field in line.split()[1:]:  # field 0 is the path pattern
+                terms.add(field.lstrip("@").replace("/", "-"))
+    return terms
+```
+
+### 3. `.mailmap` canonical names
+
+Every canonical name in `.mailmap` is protected, which prevents the checker from "correcting" a legal name that differs from a display handle.
+
+### 4. An explicit project dictionary
+
+Domain vocabulary that has nothing to do with authorship — product names, protocol terms, internal codenames — lives in a separate, hand-maintained file. Keeping it separate means regenerating the author list never clobbers curated words.
+
+---
+
+## Installing the extension
+
+### As a VS Code extension
+
+```bash
+code --install-extension <PUBLISHER>.blame-attrib-spellcheck
+```
+
+The extension bundles a spell-check engine and reads the same dictionary files as the CI job, so editor and pipeline agree.
+
+### As a GitHub App
+
+Install from the repository's **Settings → GitHub Apps** page. Grant `contents: read` and `metadata: read`. No write scopes are requested; the extension never pushes commits.
+
+### As a GitHub Action
+
+```yaml
+# .github/workflows/attribution-spellcheck.yml
+name: Attribution and spell check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write   # only to post the attribution report
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # blame needs full history
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate protected terms from authorship
+        run: python scripts/gen_author_dict.py .github/author-names.txt
+
+      - name: Spell check
+        run: npx --yes cspell "**/*.{md,ts,js,py,yml,yaml}" --no-progress
+
+      - name: Post attribution report
+        if: github.event_name == 'pull_request'
+        run: npx --yes <PUBLISHER>/blame-attrib-spellcheck report --pr "${{ github.event.number }}"
+```
+
+> [!IMPORTANT]
+> `fetch-depth: 0` is required. A shallow clone truncates history, which truncates the allowlist, which produces false positives on contributor names.
+
+---
+
+## Configuring the allowlist
+
+Point the spell checker at the generated dictionary. The example below uses the cspell configuration format, which the bundled engine and the CI job both read.
+
+```jsonc
+// cspell.json
+{
+  "version": "0.2",
+  "language": "en",
+  "allowCompoundWords": true,
+  
+  "dictionaryDefinitions": [
+    {
+      "name": "author-names",
+      "path": "./.github/author-names.txt",
+      "addWords": true,
+      "description": "GENERATED from git authorship. Do not edit."
+    },
+    {
+      "name": "project-terms",
+      "path": "./.github/project-terms.txt",
+      "addWords": true,
+      "description": "Hand-maintained domain vocabulary."
+    }
+  ],
+  
+  "dictionaries": [
+    "author-names",
+    "project-terms",
+    "softwareTerms",
+    "companies"
+  ],
+  
+  "ignorePaths": [
+    "node_modules/**",
+    ".git/**",
+    "dist/**",
+    "**/*.lock",
+    "**/*.min.js"
+  ],
+  
+  "protectFromCorrection": [
+    "author-names",
+    "project-terms"
+  ],
+  
+  "ignoreRegExpList": [
+    "0x[0-9a-fA-F]+",
+    "/{1,2}[a-zA-Z0-9._/-]+"
+  ],
+  
+  "languageSettings": [
+    {
+      "languageId": "python,javascript",
+      "locale": "en",
+      "dictionaries": ["en-us", "python", "javascript"]
+    },
+    {
+      "languageId": "markdown",
+      "locale": "en",
+      "dictionaries": ["en-us"]
+    },
+    {
+      "languageId": "python",
+      "locale": "es",
+      "dictionaries": ["en-us", "es-es"]
+    }
+  ],
+  
+  "overrides": [
+    {
+      "filename": "/tests/**/*.ts",
+      "dictionaries": ["en-us", "lorem-ipsum"]
+    },
+    {
+      "filename": "/docs/**/*.md",
+      "languageId": "markdown",
+      "locale": "en-GB"
+    }
+  ],
+  
+  "checkIdentifiers": false,
+  "checkStrings": true,
+  "checkComments": true,
+  "minWordLength": 4,
+  
+  "enabled": true
+}
+```
+
+`protectFromCorrection` is the extension's addition to the standard schema: it marks the listed dictionaries as **read-only for the autocorrect pass**. Terms from those dictionaries may still be reported as unknown if they appear outside the listed files, but they are never rewritten.
+
+### Adding a name manually
+
+If someone contributes under a pseudonym that git cannot associate with a legal name, add a `.mailmap` entry rather than editing the generated dictionary:
+
+```text
+Legal Name <legal@example.com> Handle <handle@users.noreply.github.com>
+```
+
+The next generation run picks it up. Hand edits to `author-names.txt` are discarded on regeneration — the file carries a `DO NOT EDIT` header for that reason.
+
+---
+
+## Autocorrect behaviour and safeguards
+
+Autocorrect is the highest-risk part of the extension, because a bad correction to a name is a silent attribution error. Five guards apply.
+
+1. **Protection beats correction.** A token in a protected dictionary is never a correction candidate, even when it exactly matches a known misspelling.
+2. **Identifiers are skipped by default.** Corrections apply to prose — Markdown, comments, docstrings, commit messages, and user-facing strings. Applying them to code identifiers requires explicit opt-in per language.
+3. **Corrections arrive as suggestions, not silent writes.** The editor presents a quick fix; CI reports an annotation. Neither rewrites a file without a human accepting the change.
+4. **Case is preserved.** A correction to a lower-case word never changes the capitalisation of the original token.
+5. **Every correction is logged.** The attribution panel lists applied corrections with the rule that triggered them, so a maintainer can audit what changed and revert.
+
+### Reporting levels
+
+| Level | Effect |
+|---|---|
+| `off` | No checking |
+| `report` | Annotate only; never offer a fix |
+| `suggest` | Offer quick fixes; CI annotates but exits 0 *(default)* |
+| `enforce` | CI exits non-zero on any unprotected misspelling |
+
+Start at `suggest`. Move to `enforce` only after the generated dictionary has stabilised across a few dozen pull requests.
+
+---
+
+## Running the check in CI
+
+The extension complements, rather than replaces, the standard spell-check tooling. A typical pipeline runs two passes:
+
+```bash
+# Pass 1: dedicated typo scanner, tuned for source code
+typos --config .typos.toml
+
+# Pass 2: dictionary-driven checker with the generated author list
+npx cspell "**/*.{md,ts,js,py,yml,yaml}" --no-progress
+```
+
+Both passes read the same protected-terms file, so a name exempted in the editor is exempted in CI. Divergence between the two is the single most common source of confusing failures — if the editor is quiet and CI complains, check that both point at `.github/author-names.txt`.
+
+---
+
+## Permissions and data handling
+
+| Concern | Position |
+|---|---|
+| Scopes requested | `contents: read`, `metadata: read`; `pull-requests: write` only for the report comment |
+| Data sent off-platform | None. Dictionary generation and checking run locally or in your runner |
+| Personal data | Names and email addresses already exist in public git history; the extension reads them, it does not enrich them |
+| Retention | Generated dictionaries live in the repository and are subject to your own retention policy |
+| Third-party models | No AI model is invoked. The checker is a deterministic dictionary lookup |
+
+> [!WARNING]
+> Because the generated dictionary contains contributor names and email-derived handles, treat `.github/author-names.txt` as you would any other file containing personal data. If your project strips authorship from public history, do not commit the generated file — generate it in CI and cache it as an ephemeral artifact instead.
+
+---
+
+## Troubleshooting
+
+**Contributor names are flagged despite the extension being installed**
+History is shallow. Confirm `fetch-depth: 0` in the checkout step and re-run generation.
+
+**A name is flagged only in one file**
+The token is not capitalised in the way the generator expects. Either adjust `NAME_TOKEN` in the generator or add the term to `project-terms.txt`.
+
+**A correction renamed a person**
+Protection failed. Check that the term is in `author-names.txt` *and* that `protectFromCorrection` lists the dictionary it came from. Report the collision; the extension should have logged it.
+
+**The report shows lines as unauthorized**
+Those commits lack a `Signed-off-by` trailer and were merged without a matching `CODEOWNERS` approval. This is informational. Adopt `git commit -s` if you want the trailer populated by default.
+
+**Blame attributes a reformat to the wrong person**
+The sweep commit is not in `.git-blame-ignore-revs`. Add its SHA and regenerate.
+
+**False positives on short tokens (n, f, e.i)**
+Increase `minWordLength` to `4` (default) or filter the specific pattern in `ignoreRegExpList`.
+
+**Multi-language files use the wrong dictionary**
+Verify the `languageId` and `locale` fields in `languageSettings` match the file. Use `--verbose` on the CLI to trace which settings are applied.
+
+---
+
+## Further reading
+
+| Resource | What it covers |
+|---|---|
+| [cspell.org](https://cspell.org) | The dictionary-driven engine this extension wraps; CLI, ESLint plugin, VS Code integration |
+| [Code Spell Checker (VS Code Marketplace)](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) | The editor surface, `cSpell.userWords`, ignore paths, and quick-fix suggestions |
+| [cspell-dicts](https://github.com/streetsidesoftware/cspell-dicts) | Upstream dictionaries for languages, companies, and software terms |
+| [Language Settings (cSpell)](https://cspell.org/docs/Configuration/language-settings) | Per-language configuration with `languageId` and `locale` |
+| [Sourcegraph code-ownership](https://github.com/sourcegraph/sourcegraph-code-ownership) | Reference implementation for surfacing `CODEOWNERS` owners in a file header |
+| [Codeowners Plus (GitHub Marketplace)](https://github.com/marketplace/actions/codeowners-plus) | Action that resolves and reports code owners on pull requests |
+| [Git Blame / GitLens extensions](https://code.visualstudio.com/blogs/2016/07/29/extensions-roundup-git) | Prior art for inline blame display in the editor gutter |
+
+---
+
+*Specification version 1.1 · Reviewed 29 October 2026 · Status: proposal · Added multilingual support, symbol/node-name handling, and auto device-detail detection*
